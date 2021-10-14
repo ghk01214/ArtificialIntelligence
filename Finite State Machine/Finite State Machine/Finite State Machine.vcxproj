@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Common\Time\CrudeTimer.cpp" />
+    <ClCompile Include="..\..\Common\Time\CrudeTimer.cpp" />
     <ClCompile Include="BaseGameEntity.cpp" />
     <ClCompile Include="Daughter.cpp" />
     <ClCompile Include="DaughterStates.cpp">
@@ -34,12 +34,12 @@
     <ClCompile Include="WifeStates.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Common\misc\ConsoleUtils.h" />
+    <ClInclude Include="..\..\Common\misc\utils.h" />
+    <ClInclude Include="..\..\Common\Time\CrudeTimer.h" />
     <ClInclude Include="..\Common\FSM\State.h" />
     <ClInclude Include="..\Common\FSM\StateMachine.h" />
     <ClInclude Include="..\Common\Messaging\Telegram.h" />
-    <ClInclude Include="..\Common\misc\ConsoleUtils.h" />
-    <ClInclude Include="..\Common\misc\utils.h" />
-    <ClInclude Include="..\Common\Time\CrudeTimer.h" />
     <ClInclude Include="BaseGameEntity.h" />
     <ClInclude Include="Daughter.h" />
     <ClInclude Include="DaughterStates.h" />

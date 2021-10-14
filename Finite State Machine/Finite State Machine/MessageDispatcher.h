@@ -2,8 +2,8 @@
 #pragma warning (disable:4786)
 
 #include <set>
-#include "../Common/misc/ConsoleUtils.h"
-#include "../Common/messaging/Telegram.h"
+#include "../../Common/misc/ConsoleUtils.h"
+#include "../../Common/messaging/Telegram.h"
 
 class BaseGameEntity;
 

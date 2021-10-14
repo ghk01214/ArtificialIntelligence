@@ -4,9 +4,9 @@
 #include <iostream>
 #include "BaseGameEntity.h"
 #include "Locations.h"
-#include "../Common/misc/ConsoleUtils.h"
+#include "../../Common/misc/ConsoleUtils.h"
 #include "SubwayDriverStates.h"
-#include "../Common/fsm/StateMachine.h"
+#include "../../Common/fsm/StateMachine.h"
 
 template <class entity_type> class State;
 

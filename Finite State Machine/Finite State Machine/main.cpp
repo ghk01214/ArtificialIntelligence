@@ -7,7 +7,7 @@
 #include "Daughter.h"
 #include "EntityManager.h"
 #include "MessageDispatcher.h"
-#include "../Common/../Common/misc/ConsoleUtils.h"
+#include "../../Common/misc/ConsoleUtils.h"
 #include "EntityNames.h"
 
 std::ofstream os;

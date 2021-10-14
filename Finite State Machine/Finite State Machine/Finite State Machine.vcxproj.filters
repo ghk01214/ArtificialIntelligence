@@ -42,14 +42,14 @@
     <ClCompile Include="WifeStates.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\Time\CrudeTimer.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
     <ClCompile Include="Daughter.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="DaughterStates.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Time\CrudeTimer.cpp">
+      <Filter>Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,12 +83,6 @@
     <ClInclude Include="WifeStates.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\misc\ConsoleUtils.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Common\Time\CrudeTimer.h">
-      <Filter>Common</Filter>
-    </ClInclude>
     <ClInclude Include="..\Common\FSM\State.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -98,14 +92,20 @@
     <ClInclude Include="..\Common\Messaging\Telegram.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\misc\utils.h">
-      <Filter>Common</Filter>
-    </ClInclude>
     <ClInclude Include="Daughter.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="DaughterStates.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\misc\ConsoleUtils.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\misc\utils.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Time\CrudeTimer.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

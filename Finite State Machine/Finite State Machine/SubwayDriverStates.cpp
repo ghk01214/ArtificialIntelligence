@@ -1,11 +1,11 @@
 #include "SubwayDriverStates.h"
-#include "../Common/../Common/fsm/State.h"
+#include "../../Common/fsm/State.h"
 #include "SubwayDriver.h"
 #include "Locations.h"
-#include "../Common/messaging/Telegram.h"
+#include "../../Common/messaging/Telegram.h"
 #include "MessageDispatcher.h"
 #include "MessageTypes.h"
-#include "../Common/Time/CrudeTimer.h"
+#include "../../Common/Time/CrudeTimer.h"
 #include "EntityNames.h"
 
 #include <iostream>

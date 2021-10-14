@@ -1,13 +1,13 @@
 #pragma once
 #include <string>
-#include "../Common/../Common/fsm/State.h"
+#include "../../Common/fsm/State.h"
 #include "BaseGameEntity.h"
 #include "Locations.h"
 #include "WifeStates.h"
-#include "../Common/misc/ConsoleUtils.h"
+#include "../../Common/misc/ConsoleUtils.h"
 #include "SubwayDriver.h"
-#include "../Common/fsm/StateMachine.h"
-#include "../Common/misc/Utils.h"
+#include "../../Common/fsm/StateMachine.h"
+#include "../../Common/misc/Utils.h"
 
 class Wife : public BaseGameEntity
 {
