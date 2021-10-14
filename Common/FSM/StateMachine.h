@@ -2,7 +2,7 @@
 #include <cassert>
 #include <string>
 #include "State.h"
-#include "../Common/Messaging/Telegram.h"
+#include "Messaging/Telegram.h"
 
 template <class entity_type>
 class StateMachine
