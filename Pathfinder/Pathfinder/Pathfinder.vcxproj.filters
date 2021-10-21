@@ -14,21 +14,15 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="common">
-      <UniqueIdentifier>{ed9d78b4-0eae-41bd-bc59-5e89f9e8ad63}</UniqueIdentifier>
+      <UniqueIdentifier>{bbe4c747-d692-4930-a61d-381c2ae8905d}</UniqueIdentifier>
     </Filter>
     <Filter Include="graph">
-      <UniqueIdentifier>{1bec76b1-c64c-4e7a-83c2-952acdb76053}</UniqueIdentifier>
+      <UniqueIdentifier>{d13d56e9-2bab-4f79-87fa-8220c584a7db}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pathfinder.h">
       <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Common\2D\Vector2D.h">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Common\Graph\SparseGraph.h">
-      <Filter>graph</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Common\Graph\AStarHeuristicPolicies.h">
       <Filter>graph</Filter>
@@ -48,7 +42,19 @@
     <ClInclude Include="..\..\Common\Graph\NodeTypeEnumerations.h">
       <Filter>graph</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Common\Graph\SparseGraph.h">
+      <Filter>graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\2D\Vector2D.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Time\PrecisionTimer.h">
+      <Filter>common</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Common\misc\Cgdi.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\misc\PriorityQueue.h">
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Common\misc\Stream_Utility_Functions.h">
@@ -60,22 +66,25 @@
     <ClInclude Include="..\..\Common\misc\WindowUtils.h">
       <Filter>common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\Time\PrecisionTimer.h">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Common\misc\PriorityQueue.h">
-      <Filter>common</Filter>
+    <ClInclude Include="resource.h">
+      <Filter>리소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="constants.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>리소스 파일</Filter>
+    <ClInclude Include="framework.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Pathfinder.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Time\PrecisionTimer.cpp">
+      <Filter>common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Common\misc\Cgdi.cpp">
       <Filter>common</Filter>
@@ -83,27 +92,21 @@
     <ClCompile Include="..\..\Common\misc\WindowUtils.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\Time\PrecisionTimer.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Pathfinder.rc">
+    <Image Include="icon1.ico">
       <Filter>리소스 파일</Filter>
-    </ResourceCompile>
+    </Image>
+    <Image Include="toolbar1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="small.ico">
+    <ResourceCompile Include="toolbar.rc">
       <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Pathfinder.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Pathfinder.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

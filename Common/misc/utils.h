@@ -189,7 +189,6 @@ inline void Clamp(T& arg, const U& minVal, const V& maxVal)
 //rounds a double up or down depending on its value
 inline int Rounded(double val)
 {
-<<<<<<< Updated upstream
   int    integral = (int)val;
   double mantissa = val - integral;
 
@@ -202,22 +201,12 @@ inline int Rounded(double val)
   {
     return integral + 1;
   }
-=======
-	int    integral = static_cast<int>(val);
-	double mantissa = val - integral;
-
-	if (mantissa < 0.5)
-		return integral;
-	else
-		return integral + 1;
->>>>>>> Stashed changes
 }
 
 //rounds a double up or down depending on whether its 
 //mantissa is higher or lower than offset
 inline int RoundUnderOffset(double val, double offset)
 {
-<<<<<<< Updated upstream
   int    integral = (int)val;
   double mantissa = val - integral;
 
@@ -230,15 +219,6 @@ inline int RoundUnderOffset(double val, double offset)
   {
     return integral + 1;
   }
-=======
-	int    integral = static_cast<int>(val);
-	double mantissa = val - integral;
-
-	if (mantissa < offset)
-		return integral;
-	else
-		return integral + 1;
->>>>>>> Stashed changes
 }
 
 //compares two real numbers. Returns true if they are equal
@@ -296,25 +276,16 @@ inline double StandardDeviation(const std::vector<double>& v)
 template <class container>
 inline void DeleteSTLContainer(container& c)
 {
-<<<<<<< Updated upstream
   for (container::iterator it = c.begin(); it!=c.end(); ++it)
   {
     delete *it;
     *it = NULL;
   }
-=======
-	for (auto it = c.begin(); it != c.end(); ++it)
-	{
-		delete* it;
-		*it = nullptr;
-	}
->>>>>>> Stashed changes
 }
 
 template <class map>
 inline void DeleteSTLMap(map& m)
 {
-<<<<<<< Updated upstream
   for (map::iterator it = m.begin(); it!=m.end(); ++it)
   {
     delete it->second;
@@ -327,11 +298,3 @@ inline void DeleteSTLMap(map& m)
 
 
 #endif
-=======
-	for (auto it = m.begin(); it != m.end(); ++it)
-	{
-		delete it->second;
-		it->second = nullptr;
-	}
-}
->>>>>>> Stashed changes
