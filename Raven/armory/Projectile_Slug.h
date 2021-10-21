@@ -19,24 +19,24 @@ class Slug : public Raven_Projectile
 {
 private:
 
-  //when this projectile hits something it's trajectory is rendered
-  //for this amount of time
-  double   m_dTimeShotIsVisible;
+	//when this projectile hits something it's trajectory is rendered
+	//for this amount of time
+	double   m_dTimeShotIsVisible;
 
-  //tests the trajectory of the shell for an impact
-  void  TestForImpact();
+	//tests the trajectory of the shell for an impact
+	void  TestForImpact();
 
-    //returns true if the shot is still to be rendered
-  bool  isVisibleToPlayer()const{return Clock->GetCurrentTime() < m_dTimeOfCreation + m_dTimeShotIsVisible;}
-  
+	//returns true if the shot is still to be rendered
+	bool  isVisibleToPlayer()const { return Clock->GetCurrentTime() < m_dTimeOfCreation + m_dTimeShotIsVisible; }
+
 public:
 
-  Slug(Raven_Bot* shooter, Vector2D target);
-  
-  void Render();
+	Slug(Raven_Bot* shooter, Vector2D target);
 
-  void Update();
-  
+	void Render();
+
+	void Update();
+
 };
 
 

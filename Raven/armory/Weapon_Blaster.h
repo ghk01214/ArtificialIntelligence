@@ -20,18 +20,18 @@ class Blaster : public Raven_Weapon
 {
 private:
 
-  void  InitializeFuzzyModule();
-  
+	void  InitializeFuzzyModule();
+
 public:
 
-  Blaster(Raven_Bot*   owner);
+	Blaster(Raven_Bot* owner);
 
 
-  void  Render();
+	void  Render();
 
-  void  ShootAt(Vector2D pos);
+	void  ShootAt(Vector2D pos);
 
-  double GetDesirability(double DistToTarget);
+	double GetDesirability(double DistToTarget);
 };
 
 
