@@ -1,5 +1,4 @@
-#ifndef STREAM_UTILITY_FUNCTIONS
-#define STREAM_UTILITY_FUNCTIONS
+#pragma once
 //-----------------------------------------------------------------------------
 //
 //  Name:   Stream_Utility_Functions.h
@@ -12,7 +11,6 @@
 #include <string>
 #include <iomanip>
 
-
 //------------------------------ ttos -----------------------------------------
 //
 //  convert a type to a string
@@ -20,11 +18,11 @@
 template <class T>
 inline std::string ttos(const T& t, int precision = 2)
 {
-  std::ostringstream buffer;
+	std::ostringstream buffer;
 
-  buffer << std::fixed << std::setprecision(precision) << t;
+	buffer << std::fixed << std::setprecision(precision) << t;
 
-  return buffer.str();
+	return buffer.str();
 }
 
 //------------------------------ ttos -----------------------------------------
@@ -33,8 +31,10 @@ inline std::string ttos(const T& t, int precision = 2)
 //-----------------------------------------------------------------------------
 inline std::string btos(bool b)
 {
-  if (b) return "true";
-  return "false";
+	if (b)
+		return "true";
+
+	return "false";
 }
 
 //--------------------------- GetValueFromStream ------------------------------
@@ -44,17 +44,15 @@ inline std::string btos(bool b)
 template <typename T>
 inline T GetValueFromStream(std::ifstream& stream)
 {
-  T val;
+	T val;
 
-  stream >> val;
+	stream >> val;
 
-  //make sure it was the correct type
-  if (!stream)
-  {
-    throw std::runtime_error("Attempting to retrieve wrong type from stream");
-  }
+	//make sure it was the correct type
+	if (!stream)
+		throw std::runtime_error("Attempting to retrieve wrong type from stream");
 
-  return val;
+	return val;
 }
 
 //--------------------------- WriteBitsToStream ------------------------------------
@@ -64,17 +62,18 @@ inline T GetValueFromStream(std::ifstream& stream)
 template <typename T>
 void WriteBitsToStream(std::ostream& stream, const T& val)
 {
-  int iNumBits = sizeof(T) * 8;
+	int iNumBits = sizeof(T) * 8;
 
-  while (--iNumBits >= 0)
-  {
-    if ((iNumBits+1) % 8 == 0) stream << " ";
-    unsigned long mask = 1 << iNumBits;
-    if (val & mask) stream << "1";
-    else stream << "0";
-  }
+	while (--iNumBits >= 0)
+	{
+		if ((iNumBits + 1) % 8 == 0)
+			stream << " ";
+
+		unsigned long mask = 1 << iNumBits;
+
+		if (val & mask)
+			stream << "1";
+		else
+			stream << "0";
+	}
 }
-
-
-
-#endif

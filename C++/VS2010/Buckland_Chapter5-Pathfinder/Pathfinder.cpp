@@ -424,7 +424,11 @@ void Pathfinder::Render()
 {
   gdi->TransparentText();
 
+<<<<<<< Updated upstream
   if (m_pGraph == nullptr)
+=======
+  if (m_pGraph == NULL)
+>>>>>>> Stashed changes
       return;
   
   //render all the cells
