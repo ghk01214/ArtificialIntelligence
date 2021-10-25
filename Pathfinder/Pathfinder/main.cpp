@@ -40,7 +40,7 @@ HWND g_hwndToolbar;
 //------------------------------------------------------------------------
 void RedrawDisplay(HWND hwnd)
 {
-	InvalidateRect(hwnd, NULL, TRUE);
+	InvalidateRect(hwnd, nullptr, TRUE);
 	UpdateWindow(hwnd);
 }
 
@@ -58,7 +58,7 @@ void ResizeToCorrectClientArea(HWND hwnd, int AccumulativeToolbarHeight, RECT Cl
 
 
 	SetWindowPos(hwnd,
-		NULL,
+		nullptr,
 		0,
 		0,
 		ClientArea.right,
@@ -83,8 +83,8 @@ LRESULT CALLBACK WindowProc(HWND   hwnd,
 
 	//used to create the back buffer
 	static HDC		hdcBackBuffer;
-	static HBITMAP	hBitmap = NULL;
-	static HBITMAP	hOldBitmap = NULL;
+	static HBITMAP	hBitmap = nullptr;
+	static HBITMAP	hOldBitmap = nullptr;
 
 	static int ToolBarHeight;
 
@@ -105,12 +105,12 @@ LRESULT CALLBACK WindowProc(HWND   hwnd,
 	case WM_CREATE:
 	{
 		//seed random number generator
-		srand((unsigned)time(NULL));
+		srand((unsigned)time(nullptr));
 
 		//---------------create a surface to render to(backbuffer)
 
 		//create a memory device context
-		hdcBackBuffer = CreateCompatibleDC(NULL);
+		hdcBackBuffer = CreateCompatibleDC(nullptr);
 
 		//get the DC for the front buffer
 		HDC hdc = GetDC(hwnd);
@@ -121,7 +121,7 @@ LRESULT CALLBACK WindowProc(HWND   hwnd,
 
 
 		//select the bitmap into the memory device context
-		hOldBitmap = (HBITMAP)SelectObject(hdcBackBuffer, hBitmap);
+		hOldBitmap = static_cast<HBITMAP>(SelectObject(hdcBackBuffer, hBitmap));
 
 		//don't forget to release the DC
 		ReleaseDC(hwnd, hdc);
@@ -162,7 +162,7 @@ LRESULT CALLBACK WindowProc(HWND   hwnd,
 
 
 		//create a memory device context
-		hdcBackBuffer = CreateCompatibleDC(NULL);
+		hdcBackBuffer = CreateCompatibleDC(nullptr);
 
 		//get the DC for the front buffer
 		HDC hdc = GetDC(hwnd);
@@ -172,7 +172,7 @@ LRESULT CALLBACK WindowProc(HWND   hwnd,
 			rectClientWindow.bottom);
 
 		//select the bitmap into the memory device context
-		hOldBitmap = (HBITMAP)SelectObject(hdcBackBuffer, hBitmap);
+		hOldBitmap = static_cast<HBITMAP>(SelectObject(hdcBackBuffer, hBitmap));
 
 		//don't forget to release the DC
 		ReleaseDC(hwnd, hdc);
@@ -309,8 +309,8 @@ LRESULT CALLBACK WindowProc(HWND   hwnd,
 			//uncheck the current search toolbar button
 			SendMessage(g_hwndToolbar,
 				TB_CHECKBUTTON,
-				(WPARAM)CurrentSearchButton,
-				(LPARAM)false);
+				static_cast<WPARAM>(CurrentSearchButton),
+				static_cast<LPARAM>(false));
 
 
 			break;
@@ -334,8 +334,8 @@ LRESULT CALLBACK WindowProc(HWND   hwnd,
 			//uncheck the current search toolbar button
 			SendMessage(g_hwndToolbar,
 				TB_CHECKBUTTON,
-				(WPARAM)CurrentSearchButton,
-				(LPARAM)false);
+				static_cast<WPARAM>(CurrentSearchButton),
+				static_cast<LPARAM>(false));
 
 			break;
 
@@ -392,7 +392,7 @@ LRESULT CALLBACK WindowProc(HWND   hwnd,
 			0,
 			cxClient,
 			cyClient,
-			NULL,
+			nullptr,
 			NULL,
 			NULL,
 			WHITENESS);
@@ -482,7 +482,7 @@ HWND CreateToolBar(HWND hwndParent, HINSTANCE hinstMain)
 
 	if (!InitCommonControlsEx(&cc))
 	{
-		MessageBox(NULL, "Failed to load common ctrls!", "Error!", MB_OK);
+		MessageBox(nullptr, "Failed to load common ctrls!", "Error!", MB_OK);
 
 		return 0;
 	}
@@ -490,36 +490,36 @@ HWND CreateToolBar(HWND hwndParent, HINSTANCE hinstMain)
 	//create the toolbar
 	HWND hwndToolBar = CreateWindowEx(NULL,
 		TOOLBARCLASSNAME,
-		(LPSTR)NULL,
+		static_cast<LPSTR>(nullptr),
 		WS_CHILD | WS_VISIBLE | CCS_BOTTOM,
 		0,
 		0,
 		0,
 		0,
 		hwndParent,
-		(HMENU)IDR_TOOLBAR1,
+		reinterpret_cast<HMENU>(IDR_TOOLBAR1),
 		hinstMain,
-		NULL);
+		nullptr);
 
 	//make sure the window creation has gone OK
 	if (!hwndToolBar)
 	{
-		MessageBox(NULL, "CreateWindowEx Failed!", "Error!", 0);
+		MessageBox(nullptr, "CreateWindowEx Failed!", "Error!", 0);
 	}
 
 	//let the toolbar know the size of the buttons to be added
-	SendMessage(hwndToolBar, TB_BUTTONSTRUCTSIZE, (WPARAM)sizeof(TBBUTTON), 0);
+	SendMessage(hwndToolBar, TB_BUTTONSTRUCTSIZE, static_cast<WPARAM>(sizeof(TBBUTTON)), 0);
 
 
 	//add bitmaps to the buttons
 	TBADDBITMAP tb;
-	tb.hInst = NULL;
+	tb.hInst = nullptr;
 #ifdef _WIN64
-	tb.nID = (UINT_PTR)LoadBitmap((HINSTANCE)GetWindowLong(hwndParent, GWLP_HINSTANCE), MAKEINTRESOURCE(IDR_TOOLBAR1));
+	tb.nID = reinterpret_cast<UINT_PTR>(LoadBitmap(reinterpret_cast<HINSTANCE>(GetWindowLong(hwndParent, GWLP_HINSTANCE)), MAKEINTRESOURCE(IDR_TOOLBAR1)));
 #elif _WIN32
-	tb.nID = (UINT_PTR)LoadBitmap((HINSTANCE)GetWindowLong(hwndParent, GWL_HINSTANCE), MAKEINTRESOURCE(IDR_TOOLBAR1));
+	tb.nID = reinterpret_cast<UINT_PTR>(LoadBitmap(reinterpret_cast<HINSTANCE>(GetWindowLong(hwndParent, GWL_HINSTANCE)), MAKEINTRESOURCE(IDR_TOOLBAR1)));
 #endif
-	int idx = SendMessage(hwndToolBar, TB_ADDBITMAP, NumButtons, (LPARAM)&tb);
+	int idx = SendMessage(hwndToolBar, TB_ADDBITMAP, NumButtons, reinterpret_cast<LPARAM>(&tb));
 
 	//create the buttons
 	TBBUTTON button[NumButtons];
@@ -605,7 +605,7 @@ HWND CreateToolBar(HWND hwndParent, HINSTANCE hinstMain)
 
 
 	//add the buttons to the toolbar
-	SendMessage(hwndToolBar, TB_ADDBUTTONS, (WPARAM)NumButtons, (LPARAM)(LPTBBUTTON)&button);
+	SendMessage(hwndToolBar, TB_ADDBUTTONS, static_cast<WPARAM>(NumButtons), reinterpret_cast<LPARAM>(reinterpret_cast<LPTBBUTTON>(&button)));
 
 	return hwndToolBar;
 }
@@ -634,8 +634,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	winclass.cbWndExtra = 0;
 	winclass.hInstance = hInstance;
 	winclass.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICON1));
-	winclass.hCursor = LoadCursor(NULL, IDC_ARROW);
-	winclass.hbrBackground = NULL;
+	winclass.hCursor = LoadCursor(nullptr, IDC_ARROW);
+	winclass.hbrBackground = nullptr;
 	winclass.lpszMenuName = MAKEINTRESOURCE(IDR_MENU1);
 	winclass.lpszClassName = g_szWindowClassName;
 	winclass.hIconSm = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICON1));
@@ -643,7 +643,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	//register the window class
 	if (!RegisterClassEx(&winclass))
 	{
-		MessageBox(NULL, "Registration Failed!", "Error", 0);
+		MessageBox(nullptr, "Registration Failed!", "Error", 0);
 
 		//exit the application
 		return 0;
@@ -658,15 +658,15 @@ int WINAPI WinMain(HINSTANCE hInstance,
 		GetSystemMetrics(SM_CYSCREEN) / 2 - WindowHeight / 2,
 		WindowWidth,           // initial x size
 		WindowHeight,          // initial y size
-		NULL,                 // parent window handle
-		NULL,                 // window menu handle
+		nullptr,                 // parent window handle
+		nullptr,                 // window menu handle
 		hInstance,            // program instance handle
-		NULL);                // creation parameters
+		nullptr);                // creation parameters
 
 //make sure the window creation has gone OK
 	if (!hWnd)
 	{
-		MessageBox(NULL, "CreateWindowEx Failed!", "Error!", 0);
+		MessageBox(nullptr, "CreateWindowEx Failed!", "Error!", 0);
 	}
 
 	//create the toolbar
@@ -683,7 +683,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	MSG msg;
 
 	//entry point of our message handler
-	while (GetMessage(&msg, NULL, 0, 0))
+	while (GetMessage(&msg, nullptr, 0, 0))
 	{
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);

@@ -16,15 +16,15 @@ struct Vector2D;
 //Call this to refresh the client window
 inline void RedrawWindow(HWND hwnd, bool RedrawBackGround = true)
 {
-  InvalidateRect(hwnd, NULL, RedrawBackGround);
-  UpdateWindow(hwnd);
+	InvalidateRect(hwnd, nullptr, RedrawBackGround);
+	UpdateWindow(hwnd);
 }
 
 //Call this to refresh the client window
 inline void RedrawWindowRect(HWND hwnd, bool RedrawBackGround, RECT& RedrawArea)
 {
-  InvalidateRect(hwnd, &RedrawArea, RedrawBackGround);
-  UpdateWindow(hwnd);
+	InvalidateRect(hwnd, &RedrawArea, RedrawBackGround);
+	UpdateWindow(hwnd);
 }
 
 
@@ -53,22 +53,22 @@ Vector2D GetClientCursorPosition(HWND hwnd);
 
 //two handy functions from Mr Petzold. They open a common dialog box to
 //grab a filename
-void FileInitialize (HWND hwnd,
-                     OPENFILENAME& ofn,
-                     const std::string& defaultFileTypeDescription,
-                     const std::string& defaultFileExtension);
+void FileInitialize(HWND hwnd,
+	OPENFILENAME& ofn,
+	const std::string& defaultFileTypeDescription,
+	const std::string& defaultFileExtension);
 
-BOOL FileOpenDlg (HWND               hwnd,
-                  PTSTR              pstrFileName,
-                  PTSTR              pstrTitleName,
-                  const std::string& defaultFileTypeDescription,
-                  const std::string& defaultFileExtension);
+BOOL FileOpenDlg(HWND               hwnd,
+	PTSTR              pstrFileName,
+	PTSTR              pstrTitleName,
+	const std::string& defaultFileTypeDescription,
+	const std::string& defaultFileExtension);
 
-BOOL FileSaveDlg (HWND hwnd,
-                  PTSTR pstrFileName,
-                  PTSTR pstrTitleName,
-                  const std::string& defaultFileTypeDescription,
-                  const std::string& defaultFileExtension);
+BOOL FileSaveDlg(HWND hwnd,
+	PTSTR pstrFileName,
+	PTSTR pstrTitleName,
+	const std::string& defaultFileTypeDescription,
+	const std::string& defaultFileExtension);
 
 //call this to resize the specified window to the specified size.
 void ResizeWindow(HWND hwnd, int cx, int cy);

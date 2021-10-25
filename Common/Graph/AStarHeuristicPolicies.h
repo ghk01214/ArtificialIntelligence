@@ -14,30 +14,52 @@
 //-----------------------------------------------------------------------------
 //the euclidian heuristic (straight-line distance)
 //-----------------------------------------------------------------------------
-class Heuristic_Euclid 
+class Heuristic_Euclid
 {
 public:
 
-  Heuristic_Euclid(){}
+	Heuristic_Euclid() {}
 
-  //calculate the straight line distance from node nd1 to node nd2
-  template <class graph_type>
-  static double Calculate(const graph_type& G, int nd1, int nd2)
-  {
-    return Vec2DDistance(G.GetNode(nd1).Pos(), G.GetNode(nd2).Pos());
-  }
+	//calculate the straight line distance from node nd1 to node nd2
+	template <class graph_type>
+	static double Calculate(const graph_type& G, int nd1, int nd2)
+	{
+		return Vec2DDistance(G.GetNode(nd1).Pos(), G.GetNode(nd2).Pos());
+	}
+};
 
-  template <class graph_type>
-  static double MCalculate(const graph_type& G, int nd1, int nd2)
-  {
-      return std::abs(G.GetNode(nd1).Pos().x - G.GetNode(nd2).Pos().x) + std::abs(G.GetNode(nd1).Pos().y - G.GetNode(nd2).Pos().y);
-  }
+//-----------------------------------------------------------------------------
+//the euclidian heuristic square (straight-line distance square)
+//-----------------------------------------------------------------------------
+class Heuristic_Euclid_Square
+{
+public:
 
-  template <class graph_type>
-  static double ESCalculate(const graph_type& G, int nd1, int nd2)
-  {
-      return Vec2DDistanceSq(G.GetNode(nd1).Pos(), G.GetNode(nd2).Pos());
-  }
+	Heuristic_Euclid_Square() {}
+
+	//calculate the square of straight line distance from node nd1 to node nd2
+	template <class graph_type>
+	static double Calculate(const graph_type& G, int nd1, int nd2)
+	{
+		return Vec2DDistanceSq(G.GetNode(nd1).Pos(), G.GetNode(nd2).Pos());
+	}
+};
+
+//-----------------------------------------------------------------------------
+//the manhattan heuristic (manhttan distance)
+//-----------------------------------------------------------------------------
+class Heuristic_Manhattan
+{
+public:
+
+	Heuristic_Manhattan() {}
+
+	//calculate the sum of x-axis and y-axis distance from node nd1 to node nd2
+	template <class graph_type>
+	static double Calculate(const graph_type& G, int nd1, int nd2)
+	{
+		return Vec2DDistanceManhattan(G.GetNode(nd1).Pos(), G.GetNode(nd2).Pos());
+	}
 };
 
 //-----------------------------------------------------------------------------
@@ -50,14 +72,14 @@ class Heuristic_Noisy_Euclidian
 {
 public:
 
-  Heuristic_Noisy_Euclidian(){}
+	Heuristic_Noisy_Euclidian() {}
 
-  //calculate the straight line distance from node nd1 to node nd2
-  template <class graph_type>
-  static double Calculate(const graph_type& G, int nd1, int nd2)
-  {
-    return Vec2DDistance(G.GetNode(nd1).Pos(), G.GetNode(nd2).Pos()) * RandInRange(0.9f, 1.1f);
-  }
+	//calculate the straight line distance from node nd1 to node nd2
+	template <class graph_type>
+	static double Calculate(const graph_type& G, int nd1, int nd2)
+	{
+		return Vec2DDistance(G.GetNode(nd1).Pos(), G.GetNode(nd2).Pos()) * RandInRange(0.9f, 1.1f);
+	}
 };
 
 //-----------------------------------------------------------------------------
@@ -65,15 +87,15 @@ public:
 //this is because Dijkstra's is equivalent to an A* search using a heuristic
 //value that is always equal to zero.
 //-----------------------------------------------------------------------------
-class Heuristic_Dijkstra 
+class Heuristic_Dijkstra
 {
 public:
 
-  template <class graph_type>
-  static double Calculate(const graph_type& G, int nd1, int nd2)
-  {
-    return 0;
-  }
+	template <class graph_type>
+	static double Calculate(const graph_type& G, int nd1, int nd2)
+	{
+		return 0;
+	}
 };
 
 

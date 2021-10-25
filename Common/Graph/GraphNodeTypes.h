@@ -32,7 +32,7 @@ public:
 
   virtual ~GraphNode(){}
 
-  int  Index()const{return m_iIndex;}
+  int  Index() const{return m_iIndex;}
   void SetIndex(int NewIndex){m_iIndex = NewIndex;}
   
 
@@ -91,10 +91,10 @@ public:
 
   virtual ~NavGraphNode(){}
 
-  Vector2D   Pos()const{return m_vPosition;}
+  Vector2D   Pos() const{return m_vPosition;}
   void       SetPos(Vector2D NewPosition){m_vPosition = NewPosition;}
 
-  extra_info ExtraInfo()const{return m_ExtraInfo;}
+  extra_info ExtraInfo() const{return m_ExtraInfo;}
   void       SetExtraInfo(extra_info info){m_ExtraInfo = info;}
 
   //for reading and writing to streams.

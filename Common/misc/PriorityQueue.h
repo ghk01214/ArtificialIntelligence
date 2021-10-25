@@ -144,7 +144,7 @@ public:
     m_Heap.assign(MaxSize+1, T());
   }
 
-  bool empty()const{return (m_iSize==0);}
+  bool empty() const{return (m_iSize==0);}
 
   //to insert an item into the queue it gets added to the end of the heap
   //and then the heap is reordered
@@ -172,7 +172,7 @@ public:
   }
 
   //so we can take a peek at the first in line
-  const T& Peek()const{return m_Heap[1];}
+  const T& Peek() const{return m_Heap[1];}
 };
 
 //--------------------- PriorityQLow -------------------------------------
@@ -245,7 +245,7 @@ public:
     m_Heap.assign(MaxSize+1, T());
   }
 
-  bool empty()const{return (m_iSize==0);}
+  bool empty() const{return (m_iSize==0);}
 
   //to insert an item into the queue it gets added to the end of the heap
   //and then the heap is reordered
@@ -272,7 +272,7 @@ public:
   }
 
   //so we can take a peek at the first in line
-  const T& peek()const{return m_Heap[1];}
+  const T& peek() const{return m_Heap[1];}
 };
 
 //----------------------- IndexedPriorityQLow ---------------------------
@@ -359,7 +359,7 @@ public:
     m_invHeap.assign(MaxSize+1, 0);
   }
 
-  bool empty()const{return (m_iSize==0);}
+  bool empty() const{return (m_iSize==0);}
 
   //to insert an item into the queue it gets added to the end of the heap
   //and then the heap is reordered from the bottom up.

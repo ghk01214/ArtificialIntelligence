@@ -71,7 +71,7 @@ public:
     return (m_CurrentTime - m_StartTime) * m_TimeScale;
   }
 
-  bool    Started()const{return m_bStarted;}
+  bool    Started() const{return m_bStarted;}
 
   void    SmoothUpdatesOn(){m_bSmoothUpdates = true;}
   void    SmoothUpdatesOff(){m_bSmoothUpdates = false;}
