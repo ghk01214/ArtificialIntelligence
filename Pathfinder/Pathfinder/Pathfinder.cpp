@@ -224,7 +224,7 @@ void Pathfinder::CreatePathDFS()
 	PrecisionTimer timer; timer.Start();
 
 	//do the search
-	Graph_SearchIDS<NavGraph> DFS(*m_pGraph, m_iSourceCell, m_iTargetCell);
+	Graph_SearchIDS<NavGraph> IDS(*m_pGraph, m_iSourceCell, m_iTargetCell);
 
 	//do the searchin IDS
 	//Graph_SearchIDS<NavGraph> IDS(*m_pGraph, m_iSourceCell, m_iTargetCell);
@@ -233,12 +233,12 @@ void Pathfinder::CreatePathDFS()
 	m_dTimeTaken = timer.TimeElapsed();
 
 	//now grab the path (if one has been found)
-	if (DFS.Found())
+	if (IDS.Found())
 	{
-		m_Path = DFS.GetPathToTarget();
+		m_Path = IDS.GetPathToTarget();
 	}
 
-	m_SubTree = DFS.GetSearchTree();
+	m_SubTree = IDS.GetSearchTree();
 
 	m_dCostToTarget = 0.0;
 }
