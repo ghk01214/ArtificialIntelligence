@@ -37,9 +37,9 @@ private:
 	//to aid legibility
 	enum { visited, unvisited, no_parent_assigned };
 
-	//create a typedef for the edge and node types used by the graph
-	typedef typename graph_type::EdgeType Edge;
-	typedef typename graph_type::NodeType Node;
+	//create a using for the edge and node types used by the graph
+	using Edge = typename graph_type::EdgeType;
+	using Node = typename graph_type::NodeType;
 
 private:
 
@@ -197,8 +197,8 @@ private:
 	//to aid legibility
 	enum { visited, unvisited, no_parent_assigned };
 
-	//create a typedef for the edge type used by the graph
-	typedef typename graph_type::EdgeType Edge;
+	//create a using for the edge type used by the graph
+	using Edge = typename graph_type::EdgeType;
 
 private:
 
@@ -360,9 +360,9 @@ private:
 	//to aid legibility
 	enum { visited, unvisited, no_parent_assigned };
 
-	//create a typedef for the edge and node types used by the graph
-	typedef typename graph_type::EdgeType Edge;
-	typedef typename graph_type::NodeType Node;
+	//create a using for the edge and node types used by the graph
+	using Edge = typename graph_type::EdgeType;
+	using Node = typename graph_type::NodeType;
 
 private:
 
@@ -553,8 +553,8 @@ class Graph_SearchDijkstra
 {
 private:
 
-	//create a typedef for the edge type used by the graph
-	typedef typename graph_type::EdgeType Edge;
+	//create a using for the edge type used by the graph
+	using Edge = typename graph_type::EdgeType;
 
 private:
 
@@ -721,8 +721,8 @@ class Graph_SearchAStar
 {
 private:
 
-	//create a typedef for the edge type used by the graph
-	typedef typename graph_type::EdgeType Edge;
+	//create a using for the edge type used by the graph
+	using Edge = typename graph_type::EdgeType;
 
 private:
 
@@ -873,8 +873,8 @@ class Graph_MinSpanningTree
 {
 private:
 
-	//create a typedef for the edge type used by the graph
-	typedef typename graph_type::EdgeType Edge;
+	//create a using for the edge type used by the graph
+	using Edge = typename graph_type::EdgeType;
 
 	const graph_type& m_Graph;
 

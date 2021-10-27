@@ -44,27 +44,27 @@ void Raven_TargetingSystem::Update()
 
 
 
-bool Raven_TargetingSystem::isTargetWithinFOV()const
+bool Raven_TargetingSystem::isTargetWithinFOV() const
 {
   return m_pOwner->GetSensoryMem()->isOpponentWithinFOV(m_pCurrentTarget);
 }
 
-bool Raven_TargetingSystem::isTargetShootable()const
+bool Raven_TargetingSystem::isTargetShootable() const
 {
   return m_pOwner->GetSensoryMem()->isOpponentShootable(m_pCurrentTarget);
 }
 
-Vector2D Raven_TargetingSystem::GetLastRecordedPosition()const
+Vector2D Raven_TargetingSystem::GetLastRecordedPosition() const
 {
   return m_pOwner->GetSensoryMem()->GetLastRecordedPositionOfOpponent(m_pCurrentTarget);
 }
 
-double Raven_TargetingSystem::GetTimeTargetHasBeenVisible()const
+double Raven_TargetingSystem::GetTimeTargetHasBeenVisible() const
 {
   return m_pOwner->GetSensoryMem()->GetTimeOpponentHasBeenVisible(m_pCurrentTarget);
 }
 
-double Raven_TargetingSystem::GetTimeTargetHasBeenOutOfView()const
+double Raven_TargetingSystem::GetTimeTargetHasBeenOutOfView() const
 {
   return m_pOwner->GetSensoryMem()->GetTimeOpponentHasBeenOutOfView(m_pCurrentTarget);
 }

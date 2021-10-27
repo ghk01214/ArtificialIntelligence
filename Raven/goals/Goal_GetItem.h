@@ -25,7 +25,7 @@ private:
 
   //returns true if the bot sees that the item it is heading for has been
   //picked up by an opponent
-  bool hasItemBeenStolen()const;
+  bool hasItemBeenStolen() const;
 
 public:
 

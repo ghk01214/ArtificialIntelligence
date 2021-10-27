@@ -29,7 +29,7 @@ public:
   void Reset(){m_lCount = 0;}
 
   void Start(){m_iFramesElapsed = 0;}
-  int  FramesElapsedSinceStartCalled()const{return m_iFramesElapsed;}
+  int  FramesElapsedSinceStartCalled() const{return m_iFramesElapsed;}
 
 };
 

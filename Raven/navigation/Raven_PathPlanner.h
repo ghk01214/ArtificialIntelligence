@@ -30,9 +30,9 @@ private:
 public:
 
   //for ease of use typdef the graph edge/node types used by the navgraph
-  typedef Raven_Map::NavGraph::EdgeType           EdgeType;
-  typedef Raven_Map::NavGraph::NodeType           NodeType;
-  typedef std::list<PathEdge>                     Path;
+  using EdgeType = Raven_Map::NavGraph::EdgeType;
+  using NodeType = Raven_Map::NavGraph::NodeType;
+  using Path = std::list<PathEdge>;     
   
 private:
 
@@ -51,7 +51,7 @@ private:
 
   //returns the index of the closest visible and unobstructed graph node to
   //the given position
-  int   GetClosestNodeToPosition(Vector2D pos)const;
+  int   GetClosestNodeToPosition(Vector2D pos) const;
 
   //smooths a path by removing extraneous edges. (may not remove all
   //extraneous edges)
@@ -90,27 +90,27 @@ public:
   //returns the cost to travel from the bot's current position to a specific 
   //graph node. This method makes use of the pre-calculated lookup table
   //created by Raven_Game
-  double      GetCostToNode(unsigned int NodeIdx)const;
+  double      GetCostToNode(unsigned int NodeIdx) const;
 
   //returns the cost to the closest instance of the GiverType. This method
   //also makes use of the pre-calculated lookup table. Returns -1 if no active
   //trigger found
-  double      GetCostToClosestItem(unsigned int GiverType)const;
+  double      GetCostToClosestItem(unsigned int GiverType) const;
 
   
   //the path manager calls this to iterate once though the search cycle
   //of the currently assigned search algorithm. When a search is terminated
   //the method messages the owner with either the msg_NoPathAvailable or
   //msg_PathReady messages
-  int        CycleOnce()const;
+  int        CycleOnce() const;
 
-  Vector2D   GetDestination()const{return m_vDestinationPos;}
+  Vector2D   GetDestination() const{return m_vDestinationPos;}
   void       SetDestination(Vector2D NewPos){m_vDestinationPos = NewPos;}
 
   //used to retrieve the position of a graph node from its index. (takes
   //into account the enumerations 'non_graph_source_node' and 
   //'non_graph_target_node'
-  Vector2D  GetNodePosition(int idx)const;
+  Vector2D  GetNodePosition(int idx) const;
 };
 
 

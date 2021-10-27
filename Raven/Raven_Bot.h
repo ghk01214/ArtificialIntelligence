@@ -132,7 +132,7 @@ public:
 	void         Render();
 	void         Update();
 	bool         HandleMessage(const Telegram& msg);
-	void         Write(std::ostream& os)const {/*not implemented*/ }
+	void         Write(std::ostream& os) const {/*not implemented*/ }
 	void         Read(std::ifstream& is) {/*not implemented*/ }
 
 	//this rotates the bot's heading until it is facing directly at the target
@@ -140,22 +140,22 @@ public:
 	bool          RotateFacingTowardPosition(Vector2D target);
 
 	//methods for accessing attribute data
-	int           Health()const { return m_iHealth; }
-	int           MaxHealth()const { return m_iMaxHealth; }
+	int           Health() const { return m_iHealth; }
+	int           MaxHealth() const { return m_iMaxHealth; }
 	void          ReduceHealth(unsigned int val);
 	void          IncreaseHealth(unsigned int val);
 	void          RestoreHealthToMaximum();
 
-	int           Score()const { return m_iScore; }
+	int           Score() const { return m_iScore; }
 	void          IncrementScore() { ++m_iScore; }
 
-	Vector2D      Facing()const { return m_vFacing; }
-	double        FieldOfView()const { return m_dFieldOfView; }
+	Vector2D      Facing() const { return m_vFacing; }
+	double        FieldOfView() const { return m_dFieldOfView; }
 
-	bool          isPossessed()const { return m_bPossessed; }
-	bool          isDead()const { return m_Status == dead; }
-	bool          isAlive()const { return m_Status == alive; }
-	bool          isSpawning()const { return m_Status == spawning; }
+	bool          isPossessed() const { return m_bPossessed; }
+	bool          isDead() const { return m_Status == dead; }
+	bool          isAlive() const { return m_Status == alive; }
+	bool          isSpawning() const { return m_Status == spawning; }
 
 	void          SetSpawning() { m_Status = spawning; }
 	void          SetDead() { m_Status = dead; }
@@ -163,10 +163,10 @@ public:
 
 	//returns a value indicating the time in seconds it will take the bot
 	//to reach the given position at its current speed.
-	double        CalculateTimeToReachPosition(Vector2D pos)const;
+	double        CalculateTimeToReachPosition(Vector2D pos) const;
 
 	//returns true if the bot is close to the given position
-	bool          isAtPosition(Vector2D pos)const;
+	bool          isAtPosition(Vector2D pos) const;
 
 
 	//interface for human player
@@ -179,36 +179,36 @@ public:
 	void          Spawn(Vector2D pos);
 
 	//returns true if this bot is ready to test against all triggers
-	bool          isReadyForTriggerUpdate()const;
+	bool          isReadyForTriggerUpdate() const;
 
 	//returns true if the bot has line of sight to the given position.
-	bool          hasLOSto(Vector2D pos)const;
+	bool          hasLOSto(Vector2D pos) const;
 
 	//returns true if this bot can move directly to the given position
 	//without bumping into any walls
-	bool          canWalkTo(Vector2D pos)const;
+	bool          canWalkTo(Vector2D pos) const;
 
 	//similar to above. Returns true if the bot can move between the two
 	//given positions without bumping into any walls
-	bool          canWalkBetween(Vector2D from, Vector2D to)const;
+	bool          canWalkBetween(Vector2D from, Vector2D to) const;
 
 	//returns true if there is space enough to step in the indicated direction
 	//If true PositionOfStep will be assigned the offset position
-	bool          canStepLeft(Vector2D& PositionOfStep)const;
-	bool          canStepRight(Vector2D& PositionOfStep)const;
-	bool          canStepForward(Vector2D& PositionOfStep)const;
-	bool          canStepBackward(Vector2D& PositionOfStep)const;
+	bool          canStepLeft(Vector2D& PositionOfStep) const;
+	bool          canStepRight(Vector2D& PositionOfStep) const;
+	bool          canStepForward(Vector2D& PositionOfStep) const;
+	bool          canStepBackward(Vector2D& PositionOfStep) const;
 
 
 	Raven_Game* const                  GetWorld() { return m_pWorld; }
 	Raven_Steering* const              GetSteering() { return m_pSteering; }
 	Raven_PathPlanner* const           GetPathPlanner() { return m_pPathPlanner; }
 	Goal_Think* const                  GetBrain() { return m_pBrain; }
-	const Raven_TargetingSystem* const GetTargetSys()const { return m_pTargSys; }
+	const Raven_TargetingSystem* const GetTargetSys() const { return m_pTargSys; }
 	Raven_TargetingSystem* const       GetTargetSys() { return m_pTargSys; }
-	Raven_Bot* const                   GetTargetBot()const { return m_pTargSys->GetTarget(); }
-	Raven_WeaponSystem* const          GetWeaponSys()const { return m_pWeaponSys; }
-	Raven_SensoryMemory* const         GetSensoryMem()const { return m_pSensoryMem; }
+	Raven_Bot* const                   GetTargetBot() const { return m_pTargSys->GetTarget(); }
+	Raven_WeaponSystem* const          GetWeaponSys() const { return m_pWeaponSys; }
+	Raven_SensoryMemory* const         GetSensoryMem() const { return m_pSensoryMem; }
 
 
 };

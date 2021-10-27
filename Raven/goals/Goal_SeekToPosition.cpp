@@ -77,7 +77,7 @@ int Goal_SeekToPosition::Process()
 //  returns true if the bot has taken longer than expected to reach the 
 //  currently active waypoint
 //-----------------------------------------------------------------------------
-bool Goal_SeekToPosition::isStuck()const
+bool Goal_SeekToPosition::isStuck() const
 {  
   double TimeTaken = Clock->GetCurrentTime() - m_dStartTime;
 

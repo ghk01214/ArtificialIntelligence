@@ -54,7 +54,7 @@ void Raven_PathPlanner::GetReadyForNewSearch()
 //  returns the cost to travel from the bot's current position to a specific 
  // graph node. This method makes use of the pre-calculated lookup table
 //-----------------------------------------------------------------------------
-double Raven_PathPlanner::GetCostToNode(unsigned int NodeIdx)const
+double Raven_PathPlanner::GetCostToNode(unsigned int NodeIdx) const
 {
   //find the closest visible node to the bots position
   int nd = GetClosestNodeToPosition(m_pOwner->Pos());
@@ -73,7 +73,7 @@ double Raven_PathPlanner::GetCostToNode(unsigned int NodeIdx)const
 //  makes use of the pre-calculated lookup table. Returns -1 if no active
 //  trigger found
 //-----------------------------------------------------------------------------
-double Raven_PathPlanner::GetCostToClosestItem(unsigned int GiverType)const
+double Raven_PathPlanner::GetCostToClosestItem(unsigned int GiverType) const
 {
   //find the closest visible node to the bots position
   int nd = GetClosestNodeToPosition(m_pOwner->Pos());
@@ -244,7 +244,7 @@ void Raven_PathPlanner::SmoothPathEdgesPrecise(Path& path)
 //  the path manager calls this to iterate once though the search cycle
 //  of the currently assigned search algorithm.
 //-----------------------------------------------------------------------------
-int Raven_PathPlanner::CycleOnce()const
+int Raven_PathPlanner::CycleOnce() const
 {
   assert (m_pCurrentSearch && "<Raven_PathPlanner::CycleOnce>: No search object instantiated");
 
@@ -285,7 +285,7 @@ int Raven_PathPlanner::CycleOnce()const
 //
 //  returns the index of the closest visible graph node to the given position
 //-----------------------------------------------------------------------------
-int Raven_PathPlanner::GetClosestNodeToPosition(Vector2D pos)const
+int Raven_PathPlanner::GetClosestNodeToPosition(Vector2D pos) const
 {
   double ClosestSoFar = MaxDouble;
   int   ClosestNode  = no_closest_node_found;
@@ -391,7 +391,7 @@ bool Raven_PathPlanner::RequestPathToPosition(Vector2D TargetPos)
 #endif
 
   //create an instance of a the distributed A* search class
-  typedef Graph_SearchAStar_TS<Raven_Map::NavGraph, Heuristic_Euclid> AStar;
+  using AStar = Graph_SearchAStar_TS<Raven_Map::NavGraph, Heuristic_Euclid>;
    
   m_pCurrentSearch = new AStar(m_NavGraph,
                                ClosestNodeToBot,
@@ -433,8 +433,8 @@ bool Raven_PathPlanner::RequestPathToItem(unsigned int ItemType)
   }
 
   //create an instance of the search algorithm
-  typedef FindActiveTrigger<Trigger<Raven_Bot> > t_con; 
-  typedef Graph_SearchDijkstras_TS<Raven_Map::NavGraph, t_con> DijSearch;
+  using t_con = FindActiveTrigger<Trigger<Raven_Bot> >; 
+  using DijSearch = Graph_SearchDijkstras_TS<Raven_Map::NavGraph, t_con>;
   
   m_pCurrentSearch = new DijSearch(m_NavGraph,
                                    ClosestNodeToBot,
@@ -452,7 +452,7 @@ bool Raven_PathPlanner::RequestPathToItem(unsigned int ItemType)
 //  into account the enumerations 'non_graph_source_node' and 
 //  'non_graph_target_node'
 //----------------------------------------------------------------------------- 
-Vector2D Raven_PathPlanner::GetNodePosition(int idx)const
+Vector2D Raven_PathPlanner::GetNodePosition(int idx) const
 {
   return m_NavGraph.GetNode(idx).Pos();
 }

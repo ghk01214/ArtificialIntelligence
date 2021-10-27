@@ -306,7 +306,7 @@ bool Raven_Map::LoadMap(const std::string& filename)
 //  from nd1 to nd2
 //-----------------------------------------------------------------------------
 double
-Raven_Map::CalculateCostToTravelBetweenNodes(int nd1, int nd2)const
+Raven_Map::CalculateCostToTravelBetweenNodes(int nd1, int nd2) const
 {
 	assert(nd1 >= 0 && nd1 < m_pNavGraph->NumNodes() &&
 		nd2 >= 0 && nd2 < m_pNavGraph->NumNodes() &&
@@ -361,7 +361,7 @@ void Raven_Map::UpdateTriggerSystem(std::list<Raven_Bot*>& bots)
 //
 //  returns the position of a graph node selected at random
 //-----------------------------------------------------------------------------
-Vector2D Raven_Map::GetRandomNodeLocation()const
+Vector2D Raven_Map::GetRandomNodeLocation() const
 {
 	NavGraph::ConstNodeIterator NodeItr(*m_pNavGraph);
 	int RandIndex = RandInt(0, m_pNavGraph->NumActiveNodes() - 1);

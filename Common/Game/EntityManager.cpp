@@ -15,7 +15,7 @@ EntityManager* EntityManager::Instance()
 
 //------------------------- GetEntityFromID -----------------------------------
 //-----------------------------------------------------------------------------
-BaseGameEntity* EntityManager::GetEntityFromID(int id)const
+BaseGameEntity* EntityManager::GetEntityFromID(int id) const
 {
   //find the entity
   EntityMap::const_iterator ent = m_EntityMap.find(id);

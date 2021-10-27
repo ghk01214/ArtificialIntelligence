@@ -48,7 +48,7 @@ protected:
 
   //returns true if the entity given by a position and bounding radius is
   //overlapping the trigger region
-  bool isTouchingTrigger(Vector2D EntityPos, double EntityRadius)const;
+  bool isTouchingTrigger(Vector2D EntityPos, double EntityRadius) const;
 
   //child classes use one of these methods to initialize the trigger region
   void AddCircularTriggerRegion(Vector2D center, double radius);
@@ -75,8 +75,8 @@ public:
   //state the trigger may have
   virtual void  Update() = 0;
 
-  int  GraphNodeIndex()const{return m_iGraphNodeIndex;}
-  bool isToBeRemoved()const{return m_bRemoveFromGame;}
+  int  GraphNodeIndex() const{return m_iGraphNodeIndex;}
+  bool isToBeRemoved() const{return m_bRemoveFromGame;}
   bool isActive(){return m_bActive;}
 };
 
@@ -109,7 +109,7 @@ void Trigger<entity_type>::AddRectangularTriggerRegion(Vector2D TopLeft,
 //-----------------------------------------------------------------------------
 template <class entity_type>
 bool Trigger<entity_type>::isTouchingTrigger(Vector2D EntityPos,
-                                             double    EntityRadius)const
+                                             double    EntityRadius) const
 {
   if (m_pRegionOfInfluence) 
   {

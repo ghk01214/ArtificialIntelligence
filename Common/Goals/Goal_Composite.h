@@ -17,7 +17,7 @@ class Goal_Composite : public Goal<entity_type>
 {
 private:
 
-    typedef std::list<Goal<entity_type>* > SubgoalList;
+    using SubgoalList = std::list<Goal<entity_type>* >;
 
 protected:
 
@@ -63,7 +63,7 @@ public:
   void         RemoveAllSubgoals();
 
 
-  virtual void RenderAtPos(Vector2D& pos, TypeToString* tts)const;
+  virtual void RenderAtPos(Vector2D& pos, TypeToString* tts) const;
   //this is only used to render information for debugging purposes
   virtual void Render();
 };
@@ -161,7 +161,7 @@ bool Goal_Composite<entity_type>::ForwardMessageToFrontMostSubgoal(const Telegra
 
 //-------------------------- RenderAtPos --------------------------------------
 template <class entity_type>
-void  Goal_Composite<entity_type>::RenderAtPos(Vector2D& pos, TypeToString* tts)const
+void  Goal_Composite<entity_type>::RenderAtPos(Vector2D& pos, TypeToString* tts) const
 {
   Goal<entity_type>::RenderAtPos(pos, tts);
 

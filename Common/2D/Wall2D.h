@@ -46,7 +46,7 @@ public:
 
   Wall2D(std::ifstream& in){Read(in);}
 
-  virtual void Render(bool RenderNormals = false)const
+  virtual void Render(bool RenderNormals = false) const
   {
     gdi->Line(m_vA, m_vB);
 
@@ -60,18 +60,18 @@ public:
     }
   }
 
-  Vector2D From()const  {return m_vA;}
+  Vector2D From() const  {return m_vA;}
   void     SetFrom(Vector2D v){m_vA = v; CalculateNormal();}
 
-  Vector2D To()const    {return m_vB;}
+  Vector2D To() const    {return m_vB;}
   void     SetTo(Vector2D v){m_vB = v; CalculateNormal();}
   
-  Vector2D Normal()const{return m_vN;}
+  Vector2D Normal() const{return m_vN;}
   void     SetNormal(Vector2D n){m_vN = n;}
   
-  Vector2D Center()const{return (m_vA+m_vB)/2.0;}
+  Vector2D Center() const{return (m_vA+m_vB)/2.0;}
 
-  std::ostream& Wall2D::Write(std::ostream& os)const
+  std::ostream& Wall2D::Write(std::ostream& os) const
   {
     os << std::endl;
     os << From() << ",";

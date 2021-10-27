@@ -116,7 +116,7 @@ bool Goal_GetItem::HandleMessage(const Telegram& msg)
 //  returns true if the bot sees that the item it is heading for has been
 //  picked up by an opponent
 //-----------------------------------------------------------------------------
-bool Goal_GetItem::hasItemBeenStolen()const
+bool Goal_GetItem::hasItemBeenStolen() const
 {
   if (m_pGiverTrigger &&
       !m_pGiverTrigger->isActive() &&

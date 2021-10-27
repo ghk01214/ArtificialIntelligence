@@ -115,7 +115,7 @@ int Goal_TraverseEdge::Process()
 //  returns true if the bot has taken longer than expected to reach the 
 //  currently active waypoint
 //-----------------------------------------------------------------------------
-bool Goal_TraverseEdge::isStuck()const
+bool Goal_TraverseEdge::isStuck() const
 {  
   double TimeTaken = Clock->GetCurrentTime() - m_dStartTime;
 

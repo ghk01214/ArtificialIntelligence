@@ -75,7 +75,7 @@ public:
   virtual bool HandleMessage(const Telegram& msg){return false;}
   
   //entities should be able to read/write their data to a stream
-  virtual void Write(std::ostream&  os)const{}
+  virtual void Write(std::ostream&  os) const{}
   virtual void Read (std::ifstream& is){}
 
   //use this to grab the next valid ID
@@ -86,22 +86,22 @@ public:
   
 
 
-  Vector2D     Pos()const{return m_vPosition;}
+  Vector2D     Pos() const{return m_vPosition;}
   void         SetPos(Vector2D new_pos){m_vPosition = new_pos;}
 
-  double       BRadius()const{return m_dBoundingRadius;}
+  double       BRadius() const{return m_dBoundingRadius;}
   void         SetBRadius(double r){m_dBoundingRadius = r;}
-  int          ID()const{return m_ID;}
+  int          ID() const{return m_ID;}
 
-  bool         IsTagged()const{return m_bTag;}
+  bool         IsTagged() const{return m_bTag;}
   void         Tag(){m_bTag = true;}
   void         UnTag(){m_bTag = false;}
 
-  Vector2D     Scale()const{return m_vScale;}
+  Vector2D     Scale() const{return m_vScale;}
   void         SetScale(Vector2D val){m_dBoundingRadius *= MaxOf(val.x, val.y)/MaxOf(m_vScale.x, m_vScale.y); m_vScale = val;}
   void         SetScale(double val){m_dBoundingRadius *= (val/MaxOf(m_vScale.x, m_vScale.y)); m_vScale = Vector2D(val, val);} 
 
-  int          EntityType()const{return m_iType;}
+  int          EntityType() const{return m_iType;}
   void         SetEntityType(int new_type){m_iType = new_type;}
 
 };

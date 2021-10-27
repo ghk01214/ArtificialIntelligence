@@ -24,7 +24,7 @@ class Raven_WeaponSystem
 private:
   
   //a map of weapon instances indexed into by type
-  typedef std::map<int, Raven_Weapon*>  WeaponMap;
+  using WeaponMap = std::map<int, Raven_Weapon*>;
 
 private:
 
@@ -55,11 +55,11 @@ private:
 
   //predicts where the target will be by the time it takes the current weapon's
   //projectile type to reach it. Used by TakeAimAndShoot
-  Vector2D    PredictFuturePositionOfTarget()const;
+  Vector2D    PredictFuturePositionOfTarget() const;
 
   //adds a random deviation to the firing angle not greater than m_dAimAccuracy 
   //rads
-  void        AddNoiseToAim(Vector2D& AimingPos)const;
+  void        AddNoiseToAim(Vector2D& AimingPos) const;
 
 public:
 
@@ -76,7 +76,7 @@ public:
   //this method aims the bot's current weapon at the target (if there is a
   //target) and, if aimed correctly, fires a round. (Called each update-step
   //from Raven_Bot::Update)
-  void          TakeAimAndShoot()const;
+  void          TakeAimAndShoot() const;
 
   //this method determines the most appropriate weapon to use given the current
   //game state. (Called every n update-steps from Raven_Bot::Update)
@@ -92,10 +92,10 @@ public:
   void          ChangeWeapon(unsigned int type);
 
   //shoots the current weapon at the given position
-  void          ShootAt(Vector2D pos)const;
+  void          ShootAt(Vector2D pos) const;
 
   //returns a pointer to the current weapon
-  Raven_Weapon* GetCurrentWeapon()const{return m_pCurrentWeapon;} 
+  Raven_Weapon* GetCurrentWeapon() const{return m_pCurrentWeapon;} 
 
   //returns a pointer to the specified weapon type (if in inventory, null if 
   //not)
@@ -104,10 +104,10 @@ public:
   //returns the amount of ammo remaining for the specified weapon
   int           GetAmmoRemainingForWeapon(unsigned int weapon_type);
 
-  double         ReactionTime()const{return m_dReactionTime;}
+  double         ReactionTime() const{return m_dReactionTime;}
 
-  void          RenderCurrentWeapon()const;
-  void          RenderDesirabilities()const;
+  void          RenderCurrentWeapon() const;
+  void          RenderDesirabilities() const;
 };
 
 #endif

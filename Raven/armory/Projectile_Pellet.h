@@ -28,7 +28,7 @@ private:
 	void  TestForImpact();
 
 	//returns true if the shot is still to be rendered
-	bool  isVisibleToPlayer()const { return Clock->GetCurrentTime() < m_dTimeOfCreation + m_dTimeShotIsVisible; }
+	bool  isVisibleToPlayer() const { return Clock->GetCurrentTime() < m_dTimeOfCreation + m_dTimeShotIsVisible; }
 
 public:
 

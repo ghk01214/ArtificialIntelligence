@@ -17,10 +17,10 @@ public:
   virtual ~FuzzyTerm(){}
 
   //all terms must implement a virtual constructor
-  virtual FuzzyTerm* Clone()const = 0;
+  virtual FuzzyTerm* Clone() const = 0;
 
   //retrieves the degree of membership of the term
-  virtual double      GetDOM()const=0;
+  virtual double      GetDOM() const=0;
 
   //clears the degree of membership of the term
   virtual void       ClearDOM()=0;

@@ -39,7 +39,7 @@ public:
   
   void Render();
 
-  void Write(std::ostream&  os)const{}
+  void Write(std::ostream&  os) const{}
   void Read (std::ifstream& is);
 
   bool HandleMessage(const Telegram& msg);

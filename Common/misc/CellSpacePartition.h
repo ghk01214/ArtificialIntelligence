@@ -81,7 +81,7 @@ private:
 
   //given a position in the game space this method determines the           
   //relevant cell's index
-  inline int  PositionToIndex(const Vector2D& pos)const;
+  inline int  PositionToIndex(const Vector2D& pos) const;
 
 public:
 
@@ -115,7 +115,7 @@ public:
   void        EmptyCells();
 
   //call this to use the gdi to render the cell edges
-  inline void RenderCells()const;
+  inline void RenderCells() const;
 };
 
 
@@ -224,7 +224,7 @@ void CellSpacePartition<entity>::EmptyCells()
 //  method calculates an index into its appropriate cell
 //------------------------------------------------------------------------
 template<class entity>
-inline int CellSpacePartition<entity>::PositionToIndex(const Vector2D& pos)const
+inline int CellSpacePartition<entity>::PositionToIndex(const Vector2D& pos) const
 {
   int idx = (int)(m_iNumCellsX * pos.x / m_dSpaceWidth) + 
             ((int)((m_iNumCellsY) * pos.y / m_dSpaceHeight) * m_iNumCellsX);
@@ -276,7 +276,7 @@ inline void CellSpacePartition<entity>::UpdateEntity(const entity&  ent,
 //-------------------------- RenderCells -----------------------------------
 //--------------------------------------------------------------------------
 template<class entity>
-inline void CellSpacePartition<entity>::RenderCells()const
+inline void CellSpacePartition<entity>::RenderCells() const
 {
   std::vector<Cell<entity> >::const_iterator curCell;
   for (curCell=m_Cells.begin(); curCell!=m_Cells.end(); ++curCell)

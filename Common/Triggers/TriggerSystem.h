@@ -17,7 +17,7 @@ class TriggerSystem
 {
 public:
 
-  typedef std::list<trigger_type*> TriggerList;
+  using TriggerList = std::list<trigger_type*>;
 
 private:
 
@@ -120,7 +120,7 @@ public:
     }
   }
 
-  const TriggerList& GetTriggers()const{return m_Triggers;}
+  const TriggerList& GetTriggers() const{return m_Triggers;}
 
 };
 

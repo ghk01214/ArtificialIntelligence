@@ -36,14 +36,14 @@ public:
                                 m_iDoorID(DoorID)
   {}
 
-  Vector2D Destination()const{return m_vDestination;}
+  Vector2D Destination() const{return m_vDestination;}
   void     SetDestination(Vector2D NewDest){m_vDestination = NewDest;}
   
-  Vector2D Source()const{return m_vSource;}
+  Vector2D Source() const{return m_vSource;}
   void     SetSource(Vector2D NewSource){m_vSource = NewSource;}
 
-  int      DoorID()const{return m_iDoorID;}
-  int      Behavior()const{return m_iBehavior;}
+  int      DoorID() const{return m_iDoorID;}
+  int      Behavior() const{return m_iBehavior;}
 };
 
 

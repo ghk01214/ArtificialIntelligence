@@ -53,7 +53,7 @@ FzAND::~FzAND()
 //
 //  the AND operator returns the minimum DOM of the sets it is operating on
 //-----------------------------------------------------------------------------
-double FzAND::GetDOM()const
+double FzAND::GetDOM() const
 {
   double smallest = MaxDouble;
 
@@ -143,7 +143,7 @@ FzOR::~FzOR()
 //
 //  the OR operator returns the maximum DOM of the sets it is operating on
 //----------------------------------------------------------------------------- 
-double FzOR::GetDOM()const
+double FzOR::GetDOM() const
 {
   double largest = MinFloat;
 

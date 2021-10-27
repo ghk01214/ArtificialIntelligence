@@ -56,10 +56,10 @@ protected:
 	double       m_dTimeOfCreation;
 
 	Raven_Bot* GetClosestIntersectingBot(Vector2D From,
-		Vector2D To)const;
+		Vector2D To) const;
 
 	std::list<Raven_Bot*> GetListOfIntersectingBots(Vector2D From,
-		Vector2D To)const;
+		Vector2D To) const;
 
 
 public:
@@ -98,7 +98,7 @@ public:
 
 	//unimportant for this class unless you want to implement a full state 
 	//save/restore (which can be useful for debugging purposes)
-	void Write(std::ostream& os)const {}
+	void Write(std::ostream& os) const {}
 	void Read(std::ifstream& is) {}
 
 	//must be implemented
@@ -107,11 +107,11 @@ public:
 
 	//set to true if the projectile has impacted and has finished any explosion 
 	//sequence. When true the projectile will be removed from the game
-	bool isDead()const { return m_bDead; }
+	bool isDead() const { return m_bDead; }
 
 	//true if the projectile has impacted but is not yet dead (because it
 	//may be exploding outwards from the point of impact for example)
-	bool HasImpacted()const { return m_bImpacted; }
+	bool HasImpacted() const { return m_bImpacted; }
 
 
 

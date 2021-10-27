@@ -29,14 +29,14 @@ class SparseGraph
 public:
 
 	//enable easy client access to the edge and node types used in the graph
-	typedef edge_type                EdgeType;
-	typedef node_type                NodeType;
+	using EdgeType = edge_type;
+	using NodeType = node_type;
 
-	//a couple more typedefs to save my fingers and to help with the formatting
+	//a couple more usings to save my fingers and to help with the formatting
 	//of the code on the printed page
-	typedef std::vector<node_type>   NodeVector;
-	typedef std::list<edge_type>     EdgeList;
-	typedef std::vector<EdgeList>    EdgeListVector;
+	using NodeVector = std::vector<node_type>;
+	using EdgeList = std::list<edge_type>;
+	using EdgeListVector = std::vector<EdgeList>;
 
 
 private:

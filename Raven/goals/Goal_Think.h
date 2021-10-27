@@ -23,7 +23,7 @@ class Goal_Think : public Goal_Composite<Raven_Bot>
 {
 private:
   
-  typedef std::vector<Goal_Evaluator*>   GoalEvaluators;
+  using GoalEvaluators = std::vector<Goal_Evaluator*>;
 
 private:
   
@@ -39,7 +39,7 @@ public:
   void Arbitrate();
 
   //returns true if the given goal is not at the front of the subgoal list
-  bool notPresent(unsigned int GoalType)const;
+  bool notPresent(unsigned int GoalType) const;
 
   //the usual suspects
   int  Process();
@@ -56,7 +56,7 @@ public:
   void QueueGoal_MoveToPosition(Vector2D pos);
 
   //this renders the evaluations (goal scores) at the specified location
-  void  RenderEvaluations(int left, int top)const;
+  void  RenderEvaluations(int left, int top) const;
   void  Render();
 
 

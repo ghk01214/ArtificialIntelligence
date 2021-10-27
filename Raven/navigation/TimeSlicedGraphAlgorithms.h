@@ -60,20 +60,20 @@ public:
   virtual int                           CycleOnce()=0;
 
   //returns the vector of edges that the algorithm has examined
-  virtual std::vector<const edge_type*> GetSPT()const=0;
+  virtual std::vector<const edge_type*> GetSPT() const=0;
 
 
   //returns the total cost to the target
-  virtual double                         GetCostToTarget()const=0;
+  virtual double                         GetCostToTarget() const=0;
 
   //returns a list of node indexes that comprise the shortest path
   //from the source to the target
-  virtual std::list<int>                GetPathToTarget()const=0;
+  virtual std::list<int>                GetPathToTarget() const=0;
 
   //returns the path as a list of PathEdges
-  virtual std::list<PathEdge>           GetPathAsPathEdges()const=0;
+  virtual std::list<PathEdge>           GetPathAsPathEdges() const=0;
 
-  SearchType                            GetType()const{return m_SearchType;}
+  SearchType                            GetType() const{return m_SearchType;}
 };
 
 
@@ -88,9 +88,9 @@ class Graph_SearchAStar_TS : public Graph_SearchTimeSliced<typename graph_type::
 {
 private:
   
-  //create typedefs for the node and edge types used by the graph
-  typedef typename graph_type::EdgeType Edge;
-  typedef typename graph_type::NodeType Node;
+  //create usings for the node and edge types used by the graph
+  using Edge = typename graph_type::EdgeType;
+  using Node = typename graph_type::NodeType;
 
 private:
 
@@ -145,17 +145,17 @@ public:
   int                      CycleOnce();
 
   //returns the vector of edges that the algorithm has examined
-  std::vector<const Edge*> GetSPT()const{return m_ShortestPathTree;}
+  std::vector<const Edge*> GetSPT() const{return m_ShortestPathTree;}
 
   //returns a vector of node indexes that comprise the shortest path
   //from the source to the target
-  std::list<int>         GetPathToTarget()const;
+  std::list<int>         GetPathToTarget() const;
 
   //returns the path as a list of PathEdges
-  std::list<PathEdge>    GetPathAsPathEdges()const;
+  std::list<PathEdge>    GetPathAsPathEdges() const;
 
   //returns the total cost to the target
-  double            GetCostToTarget()const{return m_GCosts[m_iTarget];}
+  double            GetCostToTarget() const{return m_GCosts[m_iTarget];}
 };
 
 //-----------------------------------------------------------------------------
@@ -225,7 +225,7 @@ int Graph_SearchAStar_TS<graph_type, heuristic>::CycleOnce()
 //-----------------------------------------------------------------------------
 template <class graph_type, class heuristic>
 std::list<int> 
-Graph_SearchAStar_TS<graph_type, heuristic>::GetPathToTarget()const
+Graph_SearchAStar_TS<graph_type, heuristic>::GetPathToTarget() const
 {
   std::list<int> path;
 
@@ -253,7 +253,7 @@ Graph_SearchAStar_TS<graph_type, heuristic>::GetPathToTarget()const
 //-----------------------------------------------------------------------------
 template <class graph_type, class heuristic>
 std::list<PathEdge> 
-Graph_SearchAStar_TS<graph_type, heuristic>::GetPathAsPathEdges()const
+Graph_SearchAStar_TS<graph_type, heuristic>::GetPathAsPathEdges() const
 {
   std::list<PathEdge> path;
 
@@ -285,9 +285,9 @@ class Graph_SearchDijkstras_TS : public Graph_SearchTimeSliced<typename graph_ty
 {
 private:
 
-  //create typedefs for the node and edge types used by the graph
-  typedef typename graph_type::EdgeType Edge;
-  typedef typename graph_type::NodeType Node;
+  //create usings for the node and edge types used by the graph
+  using Edge = typename graph_type::EdgeType;
+  using Node = typename graph_type::NodeType;
 
 private:
 
@@ -343,17 +343,17 @@ public:
   int              CycleOnce();
 
   //returns the vector of edges that the algorithm has examined
-  std::vector<const Edge*> GetSPT()const{return m_ShortestPathTree;}
+  std::vector<const Edge*> GetSPT() const{return m_ShortestPathTree;}
 
   //returns a vector of node indexes that comprise the shortest path
   //from the source to the target
-  std::list<int> GetPathToTarget()const;
+  std::list<int> GetPathToTarget() const;
 
   //returns the path as a list of PathEdges
-  std::list<PathEdge>    GetPathAsPathEdges()const;
+  std::list<PathEdge>    GetPathAsPathEdges() const;
 
   //returns the total cost to the target
-  double            GetCostToTarget()const{return m_CostToThisNode[m_iTarget];}
+  double            GetCostToTarget() const{return m_CostToThisNode[m_iTarget];}
 };
 
 //-----------------------------------------------------------------------------
@@ -430,7 +430,7 @@ int Graph_SearchDijkstras_TS<graph_type, termination_condition>::CycleOnce()
 //-----------------------------------------------------------------------------
 template <class graph_type, class termination_condition>
 std::list<int> 
-Graph_SearchDijkstras_TS<graph_type, termination_condition>::GetPathToTarget()const
+Graph_SearchDijkstras_TS<graph_type, termination_condition>::GetPathToTarget() const
 {
   std::list<int> path;
 
@@ -458,7 +458,7 @@ Graph_SearchDijkstras_TS<graph_type, termination_condition>::GetPathToTarget()co
 //-----------------------------------------------------------------------------
 template <class graph_type, class termination_condition>
 std::list<PathEdge> 
-Graph_SearchDijkstras_TS<graph_type, termination_condition>::GetPathAsPathEdges()const
+Graph_SearchDijkstras_TS<graph_type, termination_condition>::GetPathAsPathEdges() const
 {
   std::list<PathEdge> path;
 

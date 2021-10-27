@@ -124,7 +124,7 @@ void Goal_Think::Arbitrate()
 //  returns true if the goal type passed as a parameter is the same as this
 //  goal or any of its subgoals
 //-----------------------------------------------------------------------------
-bool Goal_Think::notPresent(unsigned int GoalType)const
+bool Goal_Think::notPresent(unsigned int GoalType) const
 {
   if (!m_SubGoals.empty())
   {
@@ -177,7 +177,7 @@ void Goal_Think::QueueGoal_MoveToPosition(Vector2D pos)
 
 //----------------------- RenderEvaluations -----------------------------------
 //-----------------------------------------------------------------------------
-void Goal_Think::RenderEvaluations(int left, int top)const
+void Goal_Think::RenderEvaluations(int left, int top) const
 {
   gdi->TextColor(Cgdi::black);
   

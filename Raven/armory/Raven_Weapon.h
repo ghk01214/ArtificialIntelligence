@@ -102,7 +102,7 @@ public:
 	//this method aims the weapon at the given target by rotating the weapon's
 	//owner's facing direction (constrained by the bot's turning rate). It returns  
 	//true if the weapon is directly facing the target.
-	bool          AimAt(Vector2D target)const;
+	bool          AimAt(Vector2D target) const;
 
 	//this discharges a projectile from the weapon at the given target position
 	//(provided the weapon is ready to be discharged... every weapon has its
@@ -119,17 +119,17 @@ public:
 
 	//returns the desirability score calculated in the last call to GetDesirability
 	//(just used for debugging)
-	double         GetLastDesirabilityScore()const { return m_dLastDesirabilityScore; }
+	double         GetLastDesirabilityScore() const { return m_dLastDesirabilityScore; }
 
 	//returns the maximum speed of the projectile this weapon fires
-	double         GetMaxProjectileSpeed()const { return m_dMaxProjectileSpeed; }
+	double         GetMaxProjectileSpeed() const { return m_dMaxProjectileSpeed; }
 
 	//returns the number of rounds remaining for the weapon
-	int           NumRoundsRemaining()const { return m_iNumRoundsLeft; }
+	int           NumRoundsRemaining() const { return m_iNumRoundsLeft; }
 	void          DecrementNumRounds() { if (m_iNumRoundsLeft > 0) --m_iNumRoundsLeft; }
 	void          IncrementRounds(int num);
-	unsigned int  GetType()const { return m_iType; }
-	double         GetIdealRange()const { return m_dIdealRange; }
+	unsigned int  GetType() const { return m_iType; }
+	double         GetIdealRange() const { return m_dIdealRange; }
 };
 
 
@@ -156,7 +156,7 @@ inline void Raven_Weapon::UpdateTimeWeaponIsNextAvailable()
 
 
 //-----------------------------------------------------------------------------
-inline bool Raven_Weapon::AimAt(Vector2D target)const
+inline bool Raven_Weapon::AimAt(Vector2D target) const
 {
 	return m_pOwner->RotateFacingTowardPosition(target);
 }

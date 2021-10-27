@@ -31,7 +31,7 @@ private:
 
 private:
   
-  typedef std::list<GraveRecord> GraveList;
+  using GraveList = std::list<GraveRecord>;
 
 private:
 

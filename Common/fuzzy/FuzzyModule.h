@@ -29,7 +29,7 @@ class FuzzyModule
 {
 private:
 
-  typedef std::map<std::string, FuzzyVariable*> VarMap;
+  using VarMap = std::map<std::string, FuzzyVariable*>;
   
 public:
 

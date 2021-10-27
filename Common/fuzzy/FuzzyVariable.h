@@ -25,7 +25,7 @@ class FuzzyVariable
 {
 private:
   
-  typedef std::map<std::string, FuzzySet*>  MemberSets;
+  using MemberSets = std::map<std::string, FuzzySet*>;
     
 private:
   
@@ -84,10 +84,10 @@ public:
   void        Fuzzify(double val);
 
   //defuzzify the variable using the max average method
-  double       DeFuzzifyMaxAv()const;
+  double       DeFuzzifyMaxAv() const;
 
   //defuzzify the variable using the centroid method
-  double       DeFuzzifyCentroid(int NumSamples)const;
+  double       DeFuzzifyCentroid(int NumSamples) const;
 
 
 

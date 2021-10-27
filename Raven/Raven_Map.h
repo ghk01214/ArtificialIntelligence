@@ -33,12 +33,12 @@ class Raven_Map
 {
 public:
 
-	typedef NavGraphNode<Trigger<Raven_Bot>*>         GraphNode;
-	typedef SparseGraph<GraphNode, NavGraphEdge>      NavGraph;
-	typedef CellSpacePartition<NavGraph::NodeType*>   CellSpace;
-
-	typedef Trigger<Raven_Bot>                        TriggerType;
-	typedef TriggerSystem<TriggerType>                TriggerSystem;
+	using GraphNode = NavGraphNode<Trigger<Raven_Bot>*>;
+	using NavGraph = SparseGraph<GraphNode, NavGraphEdge>;
+	using CellSpace = CellSpacePartition<NavGraph::NodeType*>;
+		  
+	using TriggerType = Trigger<Raven_Bot>;
+	using TriggerSystem = TriggerSystem<TriggerType>;
 
 private:
 
@@ -103,25 +103,25 @@ public:
 
 	void    AddSoundTrigger(Raven_Bot* pSoundSource, double range);
 
-	double   CalculateCostToTravelBetweenNodes(int nd1, int nd2)const;
+	double   CalculateCostToTravelBetweenNodes(int nd1, int nd2) const;
 
 	//returns the position of a graph node selected at random
-	Vector2D GetRandomNodeLocation()const;
+	Vector2D GetRandomNodeLocation() const;
 
 
 	void  UpdateTriggerSystem(std::list<Raven_Bot*>& bots);
 
-	const Raven_Map::TriggerSystem::TriggerList& GetTriggers()const { return m_TriggerSystem.GetTriggers(); }
-	const std::vector<Wall2D*>& GetWalls()const { return m_Walls; }
-	NavGraph& GetNavGraph()const { return *m_pNavGraph; }
+	const Raven_Map::TriggerSystem::TriggerList& GetTriggers() const { return m_TriggerSystem.GetTriggers(); }
+	const std::vector<Wall2D*>& GetWalls() const { return m_Walls; }
+	NavGraph& GetNavGraph() const { return *m_pNavGraph; }
 	std::vector<Raven_Door*>& GetDoors() { return m_Doors; }
-	const std::vector<Vector2D>& GetSpawnPoints()const { return m_SpawnPoints; }
-	CellSpace* const                   GetCellSpace()const { return m_pSpacePartition; }
+	const std::vector<Vector2D>& GetSpawnPoints() const { return m_SpawnPoints; }
+	CellSpace* const                   GetCellSpace() const { return m_pSpacePartition; }
 	Vector2D                           GetRandomSpawnPoint() { return m_SpawnPoints[RandInt(0, m_SpawnPoints.size() - 1)]; }
-	int                                GetSizeX()const { return m_iSizeX; }
-	int                                GetSizeY()const { return m_iSizeY; }
-	int                                GetMaxDimension()const { return Maximum(m_iSizeX, m_iSizeY); }
-	double                             GetCellSpaceNeighborhoodRange()const { return m_dCellSpaceNeighborhoodRange; }
+	int                                GetSizeX() const { return m_iSizeX; }
+	int                                GetSizeY() const { return m_iSizeY; }
+	int                                GetMaxDimension() const { return Maximum(m_iSizeX, m_iSizeY); }
+	double                             GetCellSpaceNeighborhoodRange() const { return m_dCellSpaceNeighborhoodRange; }
 
 };
 

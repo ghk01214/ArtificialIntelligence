@@ -39,7 +39,7 @@ public:
   inline double CalculateDOM(double val);
 
   //for a triangular set this is the range value at the midpoint
-  double RepresentativeValue()const{return m_dMidPoint;}
+  double RepresentativeValue() const{return m_dMidPoint;}
   
 };
 

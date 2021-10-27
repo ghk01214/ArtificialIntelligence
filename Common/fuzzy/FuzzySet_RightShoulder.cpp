@@ -2,7 +2,7 @@
 #include <cassert>
 
 
-double FuzzySet_RightShoulder::CalculateDOM(double val)const
+double FuzzySet_RightShoulder::CalculateDOM(double val) const
 {
   //test for the case where the left or right offsets are zero
   //(to prevent divide by zero errors below)

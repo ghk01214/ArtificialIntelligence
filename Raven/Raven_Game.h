@@ -79,7 +79,7 @@ private:
 	//when a bot is removed from the game by a user all remaining bots
 	//must be notified so that they can remove any references to that bot from
 	//their memory
-	void NotifyAllBotsOfRemoval(Raven_Bot* pRemovedBot)const;
+	void NotifyAllBotsOfRemoval(Raven_Bot* pRemovedBot) const;
 
 public:
 
@@ -104,32 +104,32 @@ public:
 
 	//returns true if a bot of size BoundingRadius cannot move from A to B
 	//without bumping into world geometry
-	bool isPathObstructed(Vector2D A, Vector2D B, double BoundingRadius = 0)const;
+	bool isPathObstructed(Vector2D A, Vector2D B, double BoundingRadius = 0) const;
 
 	//returns a vector of pointers to bots in the FOV of the given bot
-	std::vector<Raven_Bot*> GetAllBotsInFOV(const Raven_Bot* pBot)const;
+	std::vector<Raven_Bot*> GetAllBotsInFOV(const Raven_Bot* pBot) const;
 
 	//returns true if the second bot is unobstructed by walls and in the field
 	//of view of the first.
 	bool        isSecondVisibleToFirst(const Raven_Bot* pFirst,
-		const Raven_Bot* pSecond)const;
+		const Raven_Bot* pSecond) const;
 
 	//returns true if the ray between A and B is unobstructed.
-	bool        isLOSOkay(Vector2D A, Vector2D B)const;
+	bool        isLOSOkay(Vector2D A, Vector2D B) const;
 
 	//starting from the given origin and moving in the direction Heading this
 	//method returns the distance to the closest wall
-	double       GetDistanceToClosestWall(Vector2D Origin, Vector2D Heading)const;
+	double       GetDistanceToClosestWall(Vector2D Origin, Vector2D Heading) const;
 
 
 	//returns the position of the closest visible switch that triggers the
 	//door of the specified ID
-	Vector2D GetPosOfClosestSwitch(Vector2D botPos, unsigned int doorID)const;
+	Vector2D GetPosOfClosestSwitch(Vector2D botPos, unsigned int doorID) const;
 
 	//given a position on the map this method returns the bot found with its
 	//bounding radius of that position.If there is no bot at the position the
 	//method returns NULL
-	Raven_Bot* GetBotAtPosition(Vector2D CursorPos)const;
+	Raven_Bot* GetBotAtPosition(Vector2D CursorPos) const;
 
 
 	void        TogglePause() { m_bPaused = !m_bPaused; }
@@ -149,16 +149,16 @@ public:
 
 	//if a bot is possessed the keyboard is polled for user input and any 
 	//relevant bot methods are called appropriately
-	void        GetPlayerInput()const;
-	Raven_Bot* PossessedBot()const { return m_pSelectedBot; }
-	void        ChangeWeaponOfPossessedBot(unsigned int weapon)const;
+	void        GetPlayerInput() const;
+	Raven_Bot* PossessedBot() const { return m_pSelectedBot; }
+	void        ChangeWeaponOfPossessedBot(unsigned int weapon) const;
 
 
-	const Raven_Map* const                   GetMap()const { return m_pMap; }
+	const Raven_Map* const                   GetMap() const { return m_pMap; }
 	Raven_Map* const                         GetMap() { return m_pMap; }
-	const std::list<Raven_Bot*>& GetAllBots()const { return m_Bots; }
+	const std::list<Raven_Bot*>& GetAllBots() const { return m_Bots; }
 	PathManager<Raven_PathPlanner>* const    GetPathManager() { return m_pPathManager; }
-	int                                      GetNumBots()const { return m_Bots.size(); }
+	int                                      GetNumBots() const { return m_Bots.size(); }
 
 
 	void  TagRaven_BotsWithinViewRange(BaseGameEntity* pRaven_Bot, double range)

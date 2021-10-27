@@ -38,7 +38,7 @@ public:
   {}
 
   //this method calculates the degree of membership for a particular value
-  double CalculateDOM(double val)const;
+  double CalculateDOM(double val) const;
 };
 
 

@@ -192,13 +192,13 @@ public:
 
 
   void      SetTarget(Vector2D t){m_vTarget = t;}
-  Vector2D  Target()const{return m_vTarget;}
+  Vector2D  Target() const{return m_vTarget;}
 
   void      SetTargetAgent1(Raven_Bot* Agent){m_pTargetAgent1 = Agent;}
   void      SetTargetAgent2(Raven_Bot* Agent){m_pTargetAgent2 = Agent;}
 
 
-  Vector2D  Force()const{return m_vSteeringForce;}
+  Vector2D  Force() const{return m_vSteeringForce;}
 
   void      SetSummingMethod(summing_method sm){m_SummingMethod = sm;}
 
@@ -221,13 +221,13 @@ public:
   bool SeparationIsOn(){return On(separation);}
   bool WallAvoidanceIsOn(){return On(wall_avoidance);}
 
-  const std::vector<Vector2D>& GetFeelers()const{return m_Feelers;}
+  const std::vector<Vector2D>& GetFeelers() const{return m_Feelers;}
   
-  double WanderJitter()const{return m_dWanderJitter;}
-  double WanderDistance()const{return m_dWanderDistance;}
-  double WanderRadius()const{return m_dWanderRadius;}
+  double WanderJitter() const{return m_dWanderJitter;}
+  double WanderDistance() const{return m_dWanderDistance;}
+  double WanderRadius() const{return m_dWanderRadius;}
 
-  double SeparationWeight()const{return m_dWeightSeparation;}
+  double SeparationWeight() const{return m_dWeightSeparation;}
 
 };
 

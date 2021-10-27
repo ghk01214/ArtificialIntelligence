@@ -77,17 +77,17 @@ public:
   {throw std::runtime_error("Cannot add goals to atomic goals");}
 
 
-  bool         isComplete()const{return m_iStatus == completed;} 
-  bool         isActive()const{return m_iStatus == active;}
-  bool         isInactive()const{return m_iStatus == inactive;}
-  bool         hasFailed()const{return m_iStatus == failed;}
-  int          GetType()const{return m_iType;}
+  bool         isComplete() const{return m_iStatus == completed;} 
+  bool         isActive() const{return m_iStatus == active;}
+  bool         isInactive() const{return m_iStatus == inactive;}
+  bool         hasFailed() const{return m_iStatus == failed;}
+  int          GetType() const{return m_iType;}
 
   
   
   //this is used to draw the name of the goal at the specific position
   //used for debugging
-  virtual void RenderAtPos(Vector2D& pos, TypeToString* tts)const;
+  virtual void RenderAtPos(Vector2D& pos, TypeToString* tts) const;
   
   //used to render any goal specific information
   virtual void Render(){}
@@ -119,7 +119,7 @@ void  Goal<entity_type>::ActivateIfInactive()
 }
 
 template <class entity_type>
-void  Goal<entity_type>::RenderAtPos(Vector2D& pos, TypeToString* tts)const
+void  Goal<entity_type>::RenderAtPos(Vector2D& pos, TypeToString* tts) const
 {
   pos.y += 15;
   gdi->TransparentText();

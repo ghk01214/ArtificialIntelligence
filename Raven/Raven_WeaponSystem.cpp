@@ -173,7 +173,7 @@ void Raven_WeaponSystem::ChangeWeapon(unsigned int type)
 //  this method aims the bots current weapon at the target (if there is a
 //  target) and, if aimed correctly, fires a round
 //-----------------------------------------------------------------------------
-void Raven_WeaponSystem::TakeAimAndShoot()const
+void Raven_WeaponSystem::TakeAimAndShoot() const
 {
   //aim the weapon only if the current target is shootable or if it has only
   //very recently gone out of view (this latter condition is to ensure the 
@@ -238,7 +238,7 @@ void Raven_WeaponSystem::TakeAimAndShoot()const
 //  adds a random deviation to the firing angle not greater than m_dAimAccuracy 
 //  rads
 //-----------------------------------------------------------------------------
-void Raven_WeaponSystem::AddNoiseToAim(Vector2D& AimingPos)const
+void Raven_WeaponSystem::AddNoiseToAim(Vector2D& AimingPos) const
 {
   Vector2D toPos = AimingPos - m_pOwner->Pos();
 
@@ -253,7 +253,7 @@ void Raven_WeaponSystem::AddNoiseToAim(Vector2D& AimingPos)const
 //  projectile to reach it. This uses a similar logic to the Pursuit steering
 //  behavior.
 //-----------------------------------------------------------------------------
-Vector2D Raven_WeaponSystem::PredictFuturePositionOfTarget()const
+Vector2D Raven_WeaponSystem::PredictFuturePositionOfTarget() const
 {
   double MaxSpeed = GetCurrentWeapon()->GetMaxProjectileSpeed();
   
@@ -291,19 +291,19 @@ int Raven_WeaponSystem::GetAmmoRemainingForWeapon(unsigned int weapon_type)
 //
 //  shoots the current weapon at the given position
 //-----------------------------------------------------------------------------
-void Raven_WeaponSystem::ShootAt(Vector2D pos)const
+void Raven_WeaponSystem::ShootAt(Vector2D pos) const
 {
   GetCurrentWeapon()->ShootAt(pos);
 }
 
 //-------------------------- RenderCurrentWeapon ------------------------------
 //-----------------------------------------------------------------------------
-void Raven_WeaponSystem::RenderCurrentWeapon()const
+void Raven_WeaponSystem::RenderCurrentWeapon() const
 {
   GetCurrentWeapon()->Render();
 }
 
-void Raven_WeaponSystem::RenderDesirabilities()const
+void Raven_WeaponSystem::RenderDesirabilities() const
 {
   Vector2D p = m_pOwner->Pos();
 

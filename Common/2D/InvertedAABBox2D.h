@@ -31,7 +31,7 @@ public:
   {}
 
   //returns true if the bbox described by other intersects with this one
-  bool isOverlappedWith(const InvertedAABBox2D& other)const
+  bool isOverlappedWith(const InvertedAABBox2D& other) const
   {
     return !((other.Top() > this->Bottom()) ||
            (other.Bottom() < this->Top()) ||
@@ -40,16 +40,16 @@ public:
   }
 
   
-  Vector2D TopLeft()const{return m_vTopLeft;}
-  Vector2D BottomRight()const{return m_vBottomRight;}
+  Vector2D TopLeft() const{return m_vTopLeft;}
+  Vector2D BottomRight() const{return m_vBottomRight;}
 
-  double    Top()const{return m_vTopLeft.y;}
-  double    Left()const{return m_vTopLeft.x;}
-  double    Bottom()const{return m_vBottomRight.y;}
-  double    Right()const{return m_vBottomRight.x;}
-  Vector2D Center()const{return m_vCenter;}
+  double    Top() const{return m_vTopLeft.y;}
+  double    Left() const{return m_vTopLeft.x;}
+  double    Bottom() const{return m_vBottomRight.y;}
+  double    Right() const{return m_vBottomRight.x;}
+  Vector2D Center() const{return m_vCenter;}
 
-  void     Render(bool RenderCenter = false)const
+  void     Render(bool RenderCenter = false) const
   {
     gdi->Line((int)Left(), (int)Top(), (int)Right(), (int)Top() );
     gdi->Line((int)Left(), (int)Bottom(), (int)Right(), (int)Bottom() );

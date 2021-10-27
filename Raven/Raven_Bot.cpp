@@ -208,7 +208,7 @@ void Raven_Bot::UpdateMovement()
 //
 //  returns true if the bot is ready to be tested against the world triggers
 //-----------------------------------------------------------------------------
-bool Raven_Bot::isReadyForTriggerUpdate()const
+bool Raven_Bot::isReadyForTriggerUpdate() const
 {
 	return m_pTriggerTestRegulator->isReady();
 }
@@ -392,7 +392,7 @@ void Raven_Bot::FireWeapon(Vector2D pos)
 //  returns a value indicating the time in seconds it will take the bot
 //  to reach the given position at its current speed.
 //-----------------------------------------------------------------------------
-double Raven_Bot::CalculateTimeToReachPosition(Vector2D pos)const
+double Raven_Bot::CalculateTimeToReachPosition(Vector2D pos) const
 {
 	return Vec2DDistance(Pos(), pos) / (MaxSpeed() * FrameRate);
 }
@@ -401,7 +401,7 @@ double Raven_Bot::CalculateTimeToReachPosition(Vector2D pos)const
 //
 //  returns true if the bot is close to the given position
 //-----------------------------------------------------------------------------
-bool Raven_Bot::isAtPosition(Vector2D pos)const
+bool Raven_Bot::isAtPosition(Vector2D pos) const
 {
 	const static double tolerance = 10.0;
 
@@ -412,21 +412,21 @@ bool Raven_Bot::isAtPosition(Vector2D pos)const
 //
 //  returns true if the bot has line of sight to the given position.
 //-----------------------------------------------------------------------------
-bool Raven_Bot::hasLOSto(Vector2D pos)const
+bool Raven_Bot::hasLOSto(Vector2D pos) const
 {
 	return m_pWorld->isLOSOkay(Pos(), pos);
 }
 
 //returns true if this bot can move directly to the given position
 //without bumping into any walls
-bool Raven_Bot::canWalkTo(Vector2D pos)const
+bool Raven_Bot::canWalkTo(Vector2D pos) const
 {
 	return !m_pWorld->isPathObstructed(Pos(), pos, BRadius());
 }
 
 //similar to above. Returns true if the bot can move between the two
 //given positions without bumping into any walls
-bool Raven_Bot::canWalkBetween(Vector2D from, Vector2D to)const
+bool Raven_Bot::canWalkBetween(Vector2D from, Vector2D to) const
 {
 	return !m_pWorld->isPathObstructed(from, to, BRadius());
 }
@@ -436,7 +436,7 @@ bool Raven_Bot::canWalkBetween(Vector2D from, Vector2D to)const
 //  returns true if there is space enough to step in the indicated direction
 //  If true PositionOfStep will be assigned the offset position
 //-----------------------------------------------------------------------------
-bool Raven_Bot::canStepLeft(Vector2D& PositionOfStep)const
+bool Raven_Bot::canStepLeft(Vector2D& PositionOfStep) const
 {
 	static const double StepDistance = BRadius() * 2;
 
@@ -445,7 +445,7 @@ bool Raven_Bot::canStepLeft(Vector2D& PositionOfStep)const
 	return canWalkTo(PositionOfStep);
 }
 
-bool Raven_Bot::canStepRight(Vector2D& PositionOfStep)const
+bool Raven_Bot::canStepRight(Vector2D& PositionOfStep) const
 {
 	static const double StepDistance = BRadius() * 2;
 
@@ -454,7 +454,7 @@ bool Raven_Bot::canStepRight(Vector2D& PositionOfStep)const
 	return canWalkTo(PositionOfStep);
 }
 
-bool Raven_Bot::canStepForward(Vector2D& PositionOfStep)const
+bool Raven_Bot::canStepForward(Vector2D& PositionOfStep) const
 {
 	static const double StepDistance = BRadius() * 2;
 
@@ -463,7 +463,7 @@ bool Raven_Bot::canStepForward(Vector2D& PositionOfStep)const
 	return canWalkTo(PositionOfStep);
 }
 
-bool Raven_Bot::canStepBackward(Vector2D& PositionOfStep)const
+bool Raven_Bot::canStepBackward(Vector2D& PositionOfStep) const
 {
 	static const double StepDistance = BRadius() * 2;
 

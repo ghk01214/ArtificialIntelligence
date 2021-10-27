@@ -21,7 +21,7 @@ public:
 
   //returns true if an entity of the given size and position is intersecting
   //the trigger region.
-  virtual bool isTouching(Vector2D EntityPos, double EntityRadius)const = 0;
+  virtual bool isTouching(Vector2D EntityPos, double EntityRadius) const = 0;
 };
 
 
@@ -46,7 +46,7 @@ public:
                                         m_vPos(pos)
   {}
 
-  bool isTouching(Vector2D pos, double EntityRadius)const
+  bool isTouching(Vector2D pos, double EntityRadius) const
   {
     return Vec2DDistanceSq(m_vPos, pos) < (EntityRadius + m_dRadius)*(EntityRadius + m_dRadius);
   }
@@ -76,7 +76,7 @@ public:
   //there's no need to do an accurate (and expensive) circle v
   //rectangle intersection test. Instead we'll just test the bounding box of
   //the given circle with the rectangle.
-  bool isTouching(Vector2D pos, double EntityRadius)const
+  bool isTouching(Vector2D pos, double EntityRadius) const
   {
     InvertedAABBox2D Box(Vector2D(pos.x-EntityRadius, pos.y-EntityRadius),
                          Vector2D(pos.x+EntityRadius, pos.y+EntityRadius));

@@ -25,7 +25,7 @@ private:
   double     m_dStartTime;
 
   //returns true if the bot gets stuck
-  bool      isStuck()const;
+  bool      isStuck() const;
 
 public:
 

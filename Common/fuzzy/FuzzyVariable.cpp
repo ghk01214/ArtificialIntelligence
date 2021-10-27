@@ -47,7 +47,7 @@ void FuzzyVariable::Fuzzify(double val)
 //
 // OUTPUT = sum (maxima * DOM) / sum (DOMs) 
 //-----------------------------------------------------------------------------
-double FuzzyVariable::DeFuzzifyMaxAv()const
+double FuzzyVariable::DeFuzzifyMaxAv() const
 {
   double bottom = 0.0;
   double top    = 0.0;
@@ -70,7 +70,7 @@ double FuzzyVariable::DeFuzzifyMaxAv()const
 //
 //  defuzzify the variable using the centroid method
 //-----------------------------------------------------------------------------
-double FuzzyVariable::DeFuzzifyCentroid(int NumSamples)const
+double FuzzyVariable::DeFuzzifyCentroid(int NumSamples) const
 {
   //calculate the step size
   double StepSize = (m_dMaxRange - m_dMinRange)/(double)NumSamples;

@@ -5,7 +5,7 @@
 //------------------ GetClosestIntersectingBot --------------------------------
 
 Raven_Bot* Raven_Projectile::GetClosestIntersectingBot(Vector2D    From,
-	Vector2D    To)const
+	Vector2D    To) const
 {
 	Raven_Bot* ClosestIntersectingBot = 0;
 	double ClosestSoFar = MaxDouble;
@@ -42,7 +42,7 @@ Raven_Bot* Raven_Projectile::GetClosestIntersectingBot(Vector2D    From,
 
 //---------------------- GetListOfIntersectingBots ----------------------------
 std::list<Raven_Bot*> Raven_Projectile::GetListOfIntersectingBots(Vector2D From,
-	Vector2D To)const
+	Vector2D To) const
 {
 	//this will hold any bots that are intersecting with the line segment
 	std::list<Raven_Bot*> hits;

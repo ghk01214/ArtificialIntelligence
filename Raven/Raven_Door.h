@@ -80,7 +80,7 @@ public:
   //adds the ID of a switch
   void AddSwitch(unsigned int id);
 
-  std::vector<unsigned int> GetSwitchIDs()const{return m_Switches;}
+  std::vector<unsigned int> GetSwitchIDs() const{return m_Switches;}
 };
 
 

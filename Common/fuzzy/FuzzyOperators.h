@@ -42,9 +42,9 @@ public:
   FzAND(FuzzyTerm& op1, FuzzyTerm& op2, FuzzyTerm& op3, FuzzyTerm& op4);
 
   //virtual ctor
-  FuzzyTerm* Clone()const{return new FzAND(*this);}
+  FuzzyTerm* Clone() const{return new FzAND(*this);}
   
-  double GetDOM()const;
+  double GetDOM() const;
   void  ClearDOM();
   void  ORwithDOM(double val);
 };
@@ -78,9 +78,9 @@ public:
   FzOR(FuzzyTerm& op1, FuzzyTerm& op2, FuzzyTerm& op3, FuzzyTerm& op4);
 
   //virtual ctor
-  FuzzyTerm* Clone()const{return new FzOR(*this);}
+  FuzzyTerm* Clone() const{return new FzOR(*this);}
   
-  double GetDOM()const;
+  double GetDOM() const;
 
   //unused
   void ClearDOM(){assert(0 && "<FzOR::ClearDOM>: invalid context");}

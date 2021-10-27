@@ -1,7 +1,7 @@
 #include "FuzzySet_Triangle.h"
 
 
-double FuzzySet_Triangle::CalculateDOM(double val)const
+double FuzzySet_Triangle::CalculateDOM(double val) const
 {
   //test for the case where the triangle's left or right offsets are zero
   //(to prevent divide by zero errors below)

@@ -274,7 +274,7 @@ void Raven_Game::AddBots(unsigned int NumBotsToAdd)
 //  must be notifies so that they can remove any references to that bot from
 //  their memory
 //-----------------------------------------------------------------------------
-void Raven_Game::NotifyAllBotsOfRemoval(Raven_Bot* pRemovedBot)const
+void Raven_Game::NotifyAllBotsOfRemoval(Raven_Bot* pRemovedBot) const
 {
 	std::list<Raven_Bot*>::const_iterator curBot = m_Bots.begin();
 	for (curBot; curBot != m_Bots.end(); ++curBot)
@@ -352,7 +352,7 @@ void Raven_Game::AddShotGunPellet(Raven_Bot* shooter, Vector2D target)
 //  bounding radius of that position.
 //  If there is no bot at the position the method returns NULL
 //-----------------------------------------------------------------------------
-Raven_Bot* Raven_Game::GetBotAtPosition(Vector2D CursorPos)const
+Raven_Bot* Raven_Game::GetBotAtPosition(Vector2D CursorPos) const
 {
 	std::list<Raven_Bot*>::const_iterator curBot = m_Bots.begin();
 
@@ -487,7 +487,7 @@ void Raven_Game::ClickLeftMouseButton(POINTS p)
 //  if a bot is possessed the keyboard is polled for user input and any 
 //  relevant bot methods are called appropriately
 //-----------------------------------------------------------------------------
-void Raven_Game::GetPlayerInput()const
+void Raven_Game::GetPlayerInput() const
 {
 	if (m_pSelectedBot && m_pSelectedBot->isPossessed())
 	{
@@ -500,7 +500,7 @@ void Raven_Game::GetPlayerInput()const
 //
 //  changes the weapon of the possessed bot
 //-----------------------------------------------------------------------------
-void Raven_Game::ChangeWeaponOfPossessedBot(unsigned int weapon)const
+void Raven_Game::ChangeWeaponOfPossessedBot(unsigned int weapon) const
 {
 	//ensure one of the bots has been possessed
 	if (m_pSelectedBot)
@@ -531,7 +531,7 @@ void Raven_Game::ChangeWeaponOfPossessedBot(unsigned int weapon)const
 //
 //  returns true if the ray between A and B is unobstructed.
 //------------------------------------------------------------------------------
-bool Raven_Game::isLOSOkay(Vector2D A, Vector2D B)const
+bool Raven_Game::isLOSOkay(Vector2D A, Vector2D B) const
 {
 	return !doWallsObstructLineSegment(A, B, m_pMap->GetWalls());
 }
@@ -545,7 +545,7 @@ bool Raven_Game::isLOSOkay(Vector2D A, Vector2D B)const
 //-----------------------------------------------------------------------------
 bool Raven_Game::isPathObstructed(Vector2D A,
 	Vector2D B,
-	double    BoundingRadius)const
+	double    BoundingRadius) const
 {
 	Vector2D ToB = Vec2DNormalize(B - A);
 
@@ -572,7 +572,7 @@ bool Raven_Game::isPathObstructed(Vector2D A,
 //  returns a vector of pointers to bots within the given bot's field of view
 //-----------------------------------------------------------------------------
 std::vector<Raven_Bot*>
-Raven_Game::GetAllBotsInFOV(const Raven_Bot* pBot)const
+Raven_Game::GetAllBotsInFOV(const Raven_Bot* pBot) const
 {
 	std::vector<Raven_Bot*> VisibleBots;
 
@@ -607,7 +607,7 @@ Raven_Game::GetAllBotsInFOV(const Raven_Bot* pBot)const
 
 bool
 Raven_Game::isSecondVisibleToFirst(const Raven_Bot* pFirst,
-	const Raven_Bot* pSecond)const
+	const Raven_Bot* pSecond) const
 {
 	//if the two bots are equal or if one of them is not alive return false
 	if (!(pFirst == pSecond) && pSecond->isAlive())
@@ -638,7 +638,7 @@ Raven_Game::isSecondVisibleToFirst(const Raven_Bot* pFirst,
 //  door of the specified ID
 //-----------------------------------------------------------------------------
 Vector2D
-Raven_Game::GetPosOfClosestSwitch(Vector2D botPos, unsigned int doorID)const
+Raven_Game::GetPosOfClosestSwitch(Vector2D botPos, unsigned int doorID) const
 {
 	std::vector<unsigned int> SwitchIDs;
 

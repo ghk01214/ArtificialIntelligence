@@ -25,7 +25,7 @@ class EntityManager
 {
 private:
 
-  typedef std::map<int, BaseGameEntity*> EntityMap;
+  using EntityMap = std::map<int, BaseGameEntity*>;
 
 private:
 
@@ -49,7 +49,7 @@ public:
   void            RegisterEntity(BaseGameEntity* NewEntity);
 
   //returns a pointer to the entity with the ID given as a parameter
-  BaseGameEntity* GetEntityFromID(int id)const;
+  BaseGameEntity* GetEntityFromID(int id) const;
 
   //this method removes the entity from the list
   void            RemoveEntity(BaseGameEntity* pEntity);

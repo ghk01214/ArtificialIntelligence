@@ -26,7 +26,7 @@ private:
 
   bool        m_bClockwise;
 
-  Vector2D  GetStrafeTarget()const;
+  Vector2D  GetStrafeTarget() const;
 
 
 public:

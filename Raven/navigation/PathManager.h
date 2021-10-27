@@ -45,7 +45,7 @@ public:
   void UnRegister(path_planner* pPathPlanner);
 
   //returns the amount of path requests currently active.
-  int  GetNumActiveSearches()const{return m_SearchRequests.size();}
+  int  GetNumActiveSearches() const{return m_SearchRequests.size();}
 };
 
 ///////////////////////////////////////////////////////////////////////////////

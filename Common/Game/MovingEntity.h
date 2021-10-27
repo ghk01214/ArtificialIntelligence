@@ -72,28 +72,28 @@ public:
   virtual ~MovingEntity(){}
 
   //accessors
-  Vector2D  Velocity()const{return m_vVelocity;}
+  Vector2D  Velocity() const{return m_vVelocity;}
   void      SetVelocity(const Vector2D& NewVel){m_vVelocity = NewVel;}
   
-  double    Mass()const{return m_dMass;}
+  double    Mass() const{return m_dMass;}
   
-  Vector2D  Side()const{return m_vSide;}
+  Vector2D  Side() const{return m_vSide;}
 
-  double    MaxSpeed()const{return m_dMaxSpeed;}                       
+  double    MaxSpeed() const{return m_dMaxSpeed;}                       
   void      SetMaxSpeed(double new_speed){m_dMaxSpeed = new_speed;}
   
-  double    MaxForce()const{return m_dMaxForce;}
+  double    MaxForce() const{return m_dMaxForce;}
   void      SetMaxForce(double mf){m_dMaxForce = mf;}
 
-  bool      IsSpeedMaxedOut()const{return m_dMaxSpeed*m_dMaxSpeed >= m_vVelocity.LengthSq();}
-  double    Speed()const{return m_vVelocity.Length();}
-  double    SpeedSq()const{return m_vVelocity.LengthSq();}
+  bool      IsSpeedMaxedOut() const{return m_dMaxSpeed*m_dMaxSpeed >= m_vVelocity.LengthSq();}
+  double    Speed() const{return m_vVelocity.Length();}
+  double    SpeedSq() const{return m_vVelocity.LengthSq();}
   
-  Vector2D  Heading()const{return m_vHeading;}
+  Vector2D  Heading() const{return m_vHeading;}
   void      SetHeading(Vector2D new_heading);
   bool      RotateHeadingToFacePosition(Vector2D target);
 
-  double    MaxTurnRate()const{return m_dMaxTurnRate;}
+  double    MaxTurnRate() const{return m_dMaxTurnRate;}
   void      SetMaxTurnRate(double val){m_dMaxTurnRate = val;}
 
 };
