@@ -777,9 +777,11 @@ void Graph_SearchAStar<graph_type, heuristic>::Search()
 {
 	//create an indexed priority queue of nodes. The nodes with the
 	//lowest overall F cost (G+H) are positioned at the front.
+	// 우선순위 큐 작업공간 먼저 설정
 	IndexedPriorityQLow<double> pq(m_FCosts, m_Graph.NumNodes());
 
 	//put the source node on the queue
+	// 소스 삽입
 	pq.insert(m_iSource);
 
 	//while the queue is not empty
@@ -797,6 +799,7 @@ void Graph_SearchAStar<graph_type, heuristic>::Search()
 		//now to test all the edges attached to this node
 		graph_type::ConstEdgeIterator ConstEdgeItr(m_Graph, NextClosestNode);
 
+		// 자식노드 확장 구간
 		for (const Edge* pE = ConstEdgeItr.begin();
 			!ConstEdgeItr.end();
 			pE = ConstEdgeItr.next())
