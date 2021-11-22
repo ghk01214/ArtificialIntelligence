@@ -34,28 +34,29 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='boundschecker|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='boundschecker|x64'">
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -90,8 +91,8 @@
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\code\AI Source\LATEST vc6-vc10\VS2010\Common;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\아이다\Documents\대학\Artificial_Intelligence\Common\lua-5.4.2%28x64%29\include;C:\Users\아이다\Documents\대학\Artificial_Intelligence\Common;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\아이다\Documents\대학\Artificial_Intelligence\Common\lua-5.4.2%28x64%29;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Admin\Documents\대학\Artificial_Intelligence\Common\lua-5.4.2%28x64%29\include;C:\Users\Admin\Documents\대학\Artificial_Intelligence\Common;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Admin\Documents\대학\Artificial_Intelligence\Common\lua-5.4.2%28x64%29;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='boundschecker|Win32'">
     <Midl>
