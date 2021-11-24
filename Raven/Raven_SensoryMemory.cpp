@@ -102,10 +102,10 @@ void Raven_SensoryMemory::UpdateVision()
 				info.bShootable = true;
 
 				//test if the bot is within FOV
-				if (isSecondInFOVOfFirst(m_pOwner->Pos(),
-					m_pOwner->Facing(),
-					(*curBot)->Pos(),
-					m_pOwner->FieldOfView()))
+				if (isSecondInFOVOfFirst(m_pOwner->Pos(),	// 나 자신의 위치
+					m_pOwner->Facing(),						// 내가 바라보고 있는 위치
+					(*curBot)->Pos(),						// 현재 비교중인 봇의 위치
+					m_pOwner->FieldOfView()))				// 나의 FOV
 				{
 					info.fTimeLastSensed = Clock->GetCurrentTime();
 					info.vLastSensedPosition = (*curBot)->Pos();

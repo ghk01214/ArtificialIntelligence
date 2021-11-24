@@ -53,12 +53,15 @@ public:
 	// 적과 봇 사이에 장애물이 없으면 쏠 수 있는지 여부
 	bool        bShootable;
 
+	// 다른 봇들의 피격 데미지 정보를 저장
+	//std::list<int> lEnemyHealth;
 
 	MemoryRecord() : fTimeLastSensed(-999),
 		fTimeBecameVisible(-999),
 		fTimeLastVisible(0),
 		bWithinFOV(false),
 		bShootable(false)
+		//lEnemyHealth(3, 100)
 	{}
 };
 
@@ -73,6 +76,7 @@ private:
 private:
 
 	//the owner of this instance
+	//해당 인스턴스의 봇
 	Raven_Bot* m_pOwner;
 
 	//this container is used to simulate memory of sensory events. A MemoryRecord

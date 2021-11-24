@@ -44,12 +44,10 @@ private:
 	//a list of all the bots that are inhabiting the map
 	std::list<Raven_Bot*>            m_Bots;
 
-	//the user may select a bot to control manually. This is a pointer to that
-	//bot
+	//the user may select a bot to control manually. This is a pointer to that bot
 	Raven_Bot* m_pSelectedBot;
 
-	//this list contains any active projectiles (slugs, rockets,
-	//shotgun pellets, etc)
+	//this list contains any active projectiles (slugs, rockets, shotgun pellets, etc)
 	std::list<Raven_Projectile*>     m_Projectiles;
 
 	//this class manages all the path planning requests
@@ -62,8 +60,8 @@ private:
 	//if true a bot is removed from the game
 	bool                             m_bRemoveABot;
 
-	//when a bot is killed a "grave" is displayed for a few seconds. This
-	//class manages the graves
+	//when a bot is killed a "grave" is displayed for a few seconds.
+	//This class manages the graves
 	GraveMarkers* m_pGraveMarkers;
 
 	//this iterates through each trigger, testing each one against each bot
@@ -111,8 +109,7 @@ public:
 
 	//returns true if the second bot is unobstructed by walls and in the field
 	//of view of the first.
-	bool        isSecondVisibleToFirst(const Raven_Bot* pFirst,
-		const Raven_Bot* pSecond) const;
+	bool        isSecondVisibleToFirst(const Raven_Bot* pFirst, const Raven_Bot* pSecond) const;
 
 	//returns true if the ray between A and B is unobstructed.
 	bool        isLOSOkay(Vector2D A, Vector2D B) const;
@@ -150,13 +147,13 @@ public:
 	//if a bot is possessed the keyboard is polled for user input and any 
 	//relevant bot methods are called appropriately
 	void        GetPlayerInput() const;
-	Raven_Bot* PossessedBot() const { return m_pSelectedBot; }
+	Raven_Bot*  PossessedBot() const { return m_pSelectedBot; }
 	void        ChangeWeaponOfPossessedBot(unsigned int weapon) const;
 
 
 	const Raven_Map* const                   GetMap() const { return m_pMap; }
 	Raven_Map* const                         GetMap() { return m_pMap; }
-	const std::list<Raven_Bot*>& GetAllBots() const { return m_Bots; }
+	const std::list<Raven_Bot*>&			 GetAllBots() const { return m_Bots; }
 	PathManager<Raven_PathPlanner>* const    GetPathManager() { return m_pPathManager; }
 	int                                      GetNumBots() const { return m_Bots.size(); }
 

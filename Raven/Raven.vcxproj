@@ -91,8 +91,8 @@
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\code\AI Source\LATEST vc6-vc10\VS2010\Common;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Admin\Documents\대학\Artificial_Intelligence\Common\lua-5.4.2%28x64%29\include;C:\Users\Admin\Documents\대학\Artificial_Intelligence\Common;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Admin\Documents\대학\Artificial_Intelligence\Common\lua-5.4.2%28x64%29;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\ghk01\Documents\대학\3학년\2학기\인공지능\Artificial_Intelligence\Common\lua-5.4.2%28x64%29\include;C:\Users\ghk01\Documents\대학\3학년\2학기\인공지능\Artificial_Intelligence\Common;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\ghk01\Documents\대학\3학년\2학기\인공지능\Artificial_Intelligence\Common\lua-5.4.2%28x64%29;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='boundschecker|Win32'">
     <Midl>

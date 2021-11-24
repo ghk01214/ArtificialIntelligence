@@ -107,17 +107,23 @@ void Raven_Game::Clear()
 void Raven_Game::Update()
 {
 	//don't update if the user has paused the game
-	if (m_bPaused) return;
+	// 유저가 게임을 멈춘 상태면 업데이트 중지
+	if (m_bPaused)
+		return;
 
+	// 묘비 표시 업데이트
 	m_pGraveMarkers->Update();
 
 	//get any player keyboard input
+	// 플레이어 입력 확인
 	GetPlayerInput();
 
 	//update all the queued searches in the path manager
+	// path manager에 들어있는 모든 검색 요청 업데이트
 	m_pPathManager->UpdateSearches();
 
 	//update any doors
+	// 문 업데이트
 	std::vector<Raven_Door*>::iterator curDoor = m_pMap->GetDoors().begin();
 	for (curDoor; curDoor != m_pMap->GetDoors().end(); ++curDoor)
 	{
@@ -125,10 +131,13 @@ void Raven_Game::Update()
 	}
 
 	//update any current projectiles
+	// 발사체 업데이트
 	std::list<Raven_Projectile*>::iterator curW = m_Projectiles.begin();
 	while (curW != m_Projectiles.end())
 	{
 		//test for any dead projectiles and remove them if necessary
+		// 발사체 역할 종료 여부 확인
+		// 역할 종료 시 발사체 제거
 		if (!(*curW)->isDead())
 		{
 			(*curW)->Update();
@@ -144,6 +153,7 @@ void Raven_Game::Update()
 	}
 
 	//update the bots
+	// 봇 업데이트
 	bool bSpawnPossible = true;
 
 	std::list<Raven_Bot*>::iterator curBot = m_Bots.begin();
@@ -151,6 +161,7 @@ void Raven_Game::Update()
 	{
 		//if this bot's status is 'respawning' attempt to resurrect it from
 		//an unoccupied spawn point
+		// 봇의 상태가 'respawning'일 때 비어었는 소환 포인트에 소환
 		if ((*curBot)->isSpawning() && bSpawnPossible)
 		{
 			bSpawnPossible = AttemptToAddBot(*curBot);
@@ -158,16 +169,20 @@ void Raven_Game::Update()
 
 		//if this bot's status is 'dead' add a grave at its current location 
 		//then change its status to 'respawning'
+		// 봇의 상태가 사망 상태이면 묘비를 현 장소에 추가하고 상태를 'respawning' 상태로 변경
 		else if ((*curBot)->isDead())
 		{
 			//create a grave
+			// 묘비 생성
 			m_pGraveMarkers->AddGrave((*curBot)->Pos());
 
 			//change its status to spawning
+			// 'respawning' 상태로 변경
 			(*curBot)->SetSpawning();
 		}
 
 		//if this bot is alive update it.
+		// 봇 업데이트
 		else if ((*curBot)->isAlive())
 		{
 			(*curBot)->Update();
@@ -175,10 +190,11 @@ void Raven_Game::Update()
 	}
 
 	//update the triggers
+	// 트리거 업데이트
 	m_pMap->UpdateTriggerSystem(m_Bots);
 
-	//if the user has requested that the number of bots be decreased, remove
-	//one
+	//if the user has requested that the number of bots be decreased, remove one
+	// 봇의 제거 요청 시 한 개 제거
 	if (m_bRemoveABot)
 	{
 		if (!m_Bots.empty())
