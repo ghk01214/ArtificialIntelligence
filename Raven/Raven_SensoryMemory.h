@@ -61,7 +61,7 @@ public:
 		fTimeLastVisible(0),
 		bWithinFOV(false),
 		bShootable(false)
-		//lEnemyHealth(3, 100)
+		//lEnemyHealth(3, 0)
 	{}
 };
 
