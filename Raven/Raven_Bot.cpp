@@ -266,14 +266,22 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 	//==================================================
 	// 관찰하고 있는 봇이 발사체에 맞았는지 확인
 	case Msg_BotHasBeenHitByProjectile:
+	{
+		// 봇의 시야에 있는 모든 봇들
+		auto botsInFOV = m_pWorld->GetAllBotsInFOV(this);
+		// 메세지를 전송한 봇이 시야에 있는지 확인
+		auto bot = std::find_if(botsInFOV.begin(), botsInFOV.end(), [msg](const Raven_Bot* other)
+			{
+				return msg.Sender == other->ID();
+			});
 
-		// 메세지를 전송한 봇의 ID로 시인중인 봇인지 확인
-		if (m_pSensoryMem->GetBotWithinFOVByID(msg.Sender))
+		// 메세지를 전송한 봇이 있으면
+		if (bot != botsInFOV.end())
 		{
 			// 해당 봇의 체력 정보 갱신
 			m_pSensoryMem->UpdateEnemyHealth(msg.Sender, *static_cast<int*>(msg.ExtraInfo));
 		}
-
+	}
 		return true;
 
 	//==================================================
