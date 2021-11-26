@@ -264,17 +264,6 @@ void Raven_SensoryMemory::UpdateEnemyHealth(const int pOpponentID, int iDamage)
 	}
 }
 
-bool Raven_SensoryMemory::GetBotWithinFOVByID(const int pOpponentID) const
-{
-	for (auto iter = m_MemoryMap.begin(); iter != m_MemoryMap.end(); ++iter)
-	{
-		if ((*iter).first->ID() == pOpponentID)
-		{
-			return isOpponentWithinFOV((*iter).first);
-		}
-	}
-}
-
 void Raven_SensoryMemory::UpdateDamaged(const int pOpponentID, int iDamage)
 {
 	for (auto iter = m_MemoryMap.begin(); iter != m_MemoryMap.end(); ++iter)
