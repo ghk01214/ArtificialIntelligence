@@ -240,6 +240,26 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 				Msg_YouGotMeYouSOB,
 				NO_ADDITIONAL_INFO);
 		}
+		//==================================================
+		// ü���� ���� ����� ��ü ������ �޼����� ����
+		else
+		{
+			for (auto iter = m_pWorld->GetAllBots().begin(); iter != m_pWorld->GetAllBots().end(); ++iter)
+			{
+				if ((*iter)->ID() != ID())
+				{
+					Dispatcher->DispatchMsg(SEND_MSG_IMMEDIATELY,
+						ID(),
+						(*iter)->ID(),
+						Msg_BotHasBeenHitByProjectile,
+						msg.ExtraInfo);
+				}
+			}
+		}
+		//==================================================
+
+		return true;
+
 
 		return true;
 
