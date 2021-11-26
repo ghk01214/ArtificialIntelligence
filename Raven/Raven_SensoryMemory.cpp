@@ -250,8 +250,8 @@ void Raven_SensoryMemory::UpdateEnemyHealth(const int pOpponentID, int iDamage)
 		// 피격당한 봇일 경우
 		if ((*iter).first->ID() == pOpponentID)
 		{
-			// 봇의 체력이 0인 경우 100으로 다시 채운다
-			if (!(*iter).second.iEnemyHealth)
+			// 봇의 체력이 0 이하인 경우 100으로 다시 채운다
+			if ((*iter).second.iEnemyHealth <= 0)
 			{
 				(*iter).second.iEnemyHealth = 100;
 			}
