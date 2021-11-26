@@ -100,7 +100,7 @@ void Raven_SensoryMemory::UpdateVision()
 			if (m_pOwner->GetWorld()->isLOSOkay(m_pOwner->Pos(), (*curBot)->Pos()))
 			{
 				info.bShootable = true;
-
+				
 				//test if the bot is within FOV
 				if (isSecondInFOVOfFirst(m_pOwner->Pos(),	// 나 자신의 위치
 					m_pOwner->Facing(),						// 내가 바라보고 있는 위치
@@ -241,6 +241,40 @@ double Raven_SensoryMemory::GetTimeOpponentHasBeenOutOfView(Raven_Bot* pOpponent
 
 	return MaxDouble;
 }
+
+//==================================================
+void Raven_SensoryMemory::UpdateEnemyHealth(const int pOpponentID, int iDamage)
+{
+	for (auto iter = m_MemoryMap.begin(); iter != m_MemoryMap.end(); ++iter)
+	{
+		// 피격당한 봇일 경우
+		if ((*iter).first->ID() == pOpponentID)
+		{
+			// 봇의 체력이 0인 경우 100으로 다시 채운다
+			if (!(*iter).second.iEnemyHealth)
+			{
+				(*iter).second.iEnemyHealth = 100;
+			}
+
+			// 봇의 체력을 깎는다
+			(*iter).second.iEnemyHealth -= iDamage;
+
+			return;
+		}
+	}
+}
+
+bool Raven_SensoryMemory::GetBotWithinFOVByID(const int pOpponentID) const
+{
+	for (auto iter = m_MemoryMap.begin(); iter != m_MemoryMap.end(); ++iter)
+	{
+		if ((*iter).first->ID() == pOpponentID)
+		{
+			return isOpponentWithinFOV((*iter).first);
+		}
+	}
+}
+//==================================================
 
 //------------------------ GetTimeSinceLastSensed ----------------------
 //
