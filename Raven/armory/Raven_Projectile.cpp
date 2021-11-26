@@ -68,4 +68,3 @@ std::list<Raven_Bot*> Raven_Projectile::GetListOfIntersectingBots(Vector2D From,
 
 	return hits;
 }
-

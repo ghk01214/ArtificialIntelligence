@@ -112,9 +112,6 @@ public:
 	//true if the projectile has impacted but is not yet dead (because it
 	//may be exploding outwards from the point of impact for example)
 	bool HasImpacted() const { return m_bImpacted; }
-
-
-
 };
 
 

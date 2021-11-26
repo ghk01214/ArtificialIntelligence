@@ -141,7 +141,6 @@ void Rocket::InflictDamageOnBotsWithinBlastRadius()
 				(*curBot)->ID(),
 				Msg_TakeThatMF,
 				(void*)&m_iDamageInflicted);
-
 		}
 	}
 }

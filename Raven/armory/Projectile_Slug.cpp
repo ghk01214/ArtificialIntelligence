@@ -98,7 +98,6 @@ void Slug::TestForImpact()
 			(*it)->ID(),
 			Msg_TakeThatMF,
 			(void*)&m_iDamageInflicted);
-
 	}
 }
 
