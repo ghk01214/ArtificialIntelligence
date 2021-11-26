@@ -241,7 +241,7 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 				NO_ADDITIONAL_INFO);
 		}
 		//==================================================
-		// Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// Ã¼·ÂÀÌ ±ðÀÎ »ç½ÇÀ» ÀüÃ¼ º¿¿¡°Ô ¸Þ¼¼Áö·Î Àü¼Û
 		else
 		{
 			for (auto iter = m_pWorld->GetAllBots().begin(); iter != m_pWorld->GetAllBots().end(); ++iter)
@@ -260,9 +260,20 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 
 		return true;
 
+	//==================================================
+	// °üÂûÇÏ°í ÀÖ´Â º¿ÀÌ ¹ß»çÃ¼¿¡ ¸Â¾Ò´ÂÁö È®ÀÎ
+	case Msg_BotHasBeenHitByProjectile:
+
+		// ¸Þ¼¼Áö¸¦ Àü¼ÛÇÑ º¿ÀÇ ID·Î ½ÃÀÎÁßÀÎ º¿ÀÎÁö È®ÀÎ
+		if (m_pSensoryMem->GetBotWithinFOVByID(msg.Sender))
+		{
+			// ÇØ´ç º¿ÀÇ Ã¼·Â Á¤º¸ °»½Å
+			m_pSensoryMem->UpdateEnemyHealth(msg.Sender, *static_cast<int*>(msg.ExtraInfo));
+		}
 
 		return true;
 
+	//==================================================
 	case Msg_YouGotMeYouSOB:
 
 		IncrementScore();
