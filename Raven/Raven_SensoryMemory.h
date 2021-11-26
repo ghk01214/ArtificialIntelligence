@@ -55,13 +55,17 @@ public:
 
 	// 다른 봇들의 피격 데미지 정보를 저장
 	int			iEnemyHealth;
+	
+	// 봇이 적에게 입은 데미지
+	int			iDamaged;
 
 	MemoryRecord() : fTimeLastSensed(-999),
 		fTimeBecameVisible(-999),
 		fTimeLastVisible(0),
 		bWithinFOV(false),
 		bShootable(false),
-		iEnemyHealth(100)
+		iEnemyHealth(100),
+		iDamaged(0)
 	{}
 };
 
@@ -119,6 +123,8 @@ public:
 	//==================================================
 	void	  UpdateEnemyHealth(const int pOpponentID, int iDamage);	// 시인중인 봇의 체력을 갱신
 	bool	  GetBotWithinFOVByID(const int pOpponentID) const;			// 봇의 ID를 인자로 해당 봇이 시야에 있는지 확인
+
+	void	  UpdateDamaged(const int pOpponentID, int iDamage);		// 적에게 받은 데미지량
 	//==================================================
 
 	//this method returns a list of all the opponents that have had their

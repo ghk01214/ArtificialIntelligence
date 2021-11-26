@@ -274,6 +274,19 @@ bool Raven_SensoryMemory::GetBotWithinFOVByID(const int pOpponentID) const
 		}
 	}
 }
+
+void Raven_SensoryMemory::UpdateDamaged(const int pOpponentID, int iDamage)
+{
+	for (auto iter = m_MemoryMap.begin(); iter != m_MemoryMap.end(); ++iter)
+	{
+		if ((*iter).first->ID() == pOpponentID)
+		{
+			(*iter).second.iDamaged += iDamage;
+
+			return;
+		}
+	}
+}
 //==================================================
 
 //------------------------ GetTimeSinceLastSensed ----------------------
