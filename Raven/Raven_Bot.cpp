@@ -135,7 +135,7 @@ void Raven_Bot::Update()
 		//to be the current target
 		if (m_pTargetSelectionRegulator->isReady())
 		{
-			m_pTargSys->Update();
+			m_pTargSys->UpdateByDistance();
 		}
 
 		//appraise and arbitrate between all possible high level goals
@@ -230,6 +230,9 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 
 		//the extra info field of the telegram carries the amount of damage
 		ReduceHealth(DereferenceToType<int>(msg.ExtraInfo));
+
+		// 적에게 입은 데미지량 갱신
+		m_pSensoryMem->UpdateDamaged(msg.Sender, *static_cast<int*>(msg.ExtraInfo));
 
 		//if this bot is now dead let the shooter know
 		if (isDead())
