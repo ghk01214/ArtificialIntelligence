@@ -271,6 +271,45 @@ void Raven_SensoryMemory::UpdateDamaged(const int pOpponentID, int iDamage)
 		if ((*iter).first->ID() == pOpponentID)
 		{
 			(*iter).second.iDamaged += iDamage;
+			if (iter->first->isDead())
+			{
+				iter->second.iDamaged = 0;
+			}
+
+			return;
+		}
+	}
+}
+
+int Raven_SensoryMemory::GetEnemyHealth(Raven_Bot* pOpponent) const
+{
+	auto iter = m_MemoryMap.find(pOpponent);
+
+	if (iter != m_MemoryMap.end())
+	{
+		return iter->second.iEnemyHealth;
+	}
+}
+
+int Raven_SensoryMemory::GetDamaged(Raven_Bot* pOpponent) const
+{
+	auto iter = m_MemoryMap.find(pOpponent);
+
+	if (iter != m_MemoryMap.end())
+	{
+		return iter->second.iDamaged;
+	}
+}
+
+void Raven_SensoryMemory::ClearEnemyInfo(const int pOpponentID)
+{
+	for (auto iter = m_MemoryMap.begin(); iter != m_MemoryMap.end(); ++iter)
+	{
+		// 나를 맞춘 봇
+		if (iter->first->ID() == pOpponentID)
+		{
+			iter->second.iEnemyHealth = 100;
+			iter->second.iDamaged = 0;
 
 			return;
 		}

@@ -121,8 +121,13 @@ public:
 	double    GetTimeOpponentHasBeenOutOfView(Raven_Bot* pOpponent) const;
 	
 	//==================================================
-	void	  UpdateEnemyHealth(const int pOpponentID, int iDamage);	// 시인중인 봇의 체력을 갱신
+	void	  UpdateEnemyHealth(const int pOpponentID, int iDamage);	// 시야에 있는 봇의 체력을 갱신
 	void	  UpdateDamaged(const int pOpponentID, int iDamage);		// 적에게 받은 데미지량
+
+	int		  GetEnemyHealth(Raven_Bot* pOpponent) const;
+	int		  GetDamaged(Raven_Bot* pOpponent) const;
+
+	void	  ClearEnemyInfo(const int pOpponentID);
 	//==================================================
 
 	//this method returns a list of all the opponents that have had their
