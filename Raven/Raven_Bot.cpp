@@ -296,7 +296,7 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 		}
 	}
 		return true;
-
+		
 	//==================================================
 	case Msg_YouGotMeYouSOB:
 
@@ -304,6 +304,10 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 
 		//the bot this bot has just killed should be removed as the target
 		m_pTargSys->ClearTarget();
+		
+		//==================================================
+		m_pSensoryMem->ClearEnemyInfo(msg.Sender);
+		//==================================================
 
 		return true;
 
