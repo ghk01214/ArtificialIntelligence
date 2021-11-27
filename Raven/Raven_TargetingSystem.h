@@ -39,8 +39,13 @@ public:
 	//if there are no opponents that have had their memory records updated
 	//within the memory span of the owner then the current target is set
 	//to null
-	void       Update();
+	void       UpdateByDistance();							// 적과의 거리에 따라 목표 설정
 
+	//==================================================
+	void	   UpdateByHealth();							// 적에게 입힌 데미지량에 따라 목표 설정
+	void	   UpdateByDamaged();							// 적에게 입은 데미지량에 따라 목표 설정
+	//==================================================
+	
 	//returns true if there is a currently assigned target
 	bool       isTargetPresent() const { return m_pCurrentTarget != 0; }
 

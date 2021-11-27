@@ -135,7 +135,20 @@ void Raven_Bot::Update()
 		//to be the current target
 		if (m_pTargetSelectionRegulator->isReady())
 		{
-			m_pTargSys->UpdateByDistance();
+			int iFirstBotID = m_pWorld->GetAllBots().front()->ID();
+			
+			if (ID() == iFirstBotID)
+			{
+				m_pTargSys->UpdateByDistance();
+			}
+			else if (ID() == iFirstBotID + 1)
+			{
+				m_pTargSys->UpdateByHealth();
+			}
+			else if (ID() == iFirstBotID + 2)
+			{
+				m_pTargSys->UpdateByDamaged();
+			}
 		}
 
 		//appraise and arbitrate between all possible high level goals
