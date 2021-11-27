@@ -248,16 +248,16 @@ void Raven_SensoryMemory::UpdateEnemyHealth(const int pOpponentID, int iDamage)
 	for (auto iter = m_MemoryMap.begin(); iter != m_MemoryMap.end(); ++iter)
 	{
 		// ÇÇ°İ´çÇÑ º¿ÀÏ °æ¿ì
-		if ((*iter).first->ID() == pOpponentID)
+		if (iter->first->ID() == pOpponentID)
 		{
 			// º¿ÀÇ Ã¼·ÂÀÌ 0 ÀÌÇÏÀÎ °æ¿ì 100À¸·Î ´Ù½Ã Ã¤¿î´Ù
-			if ((*iter).second.iEnemyHealth <= 0)
+			if (iter->second.iEnemyHealth <= 0)
 			{
-				(*iter).second.iEnemyHealth = 100;
+				iter->second.iEnemyHealth = 100;
 			}
 
 			// º¿ÀÇ Ã¼·ÂÀ» ±ğ´Â´Ù
-			(*iter).second.iEnemyHealth -= iDamage;
+			iter->second.iEnemyHealth -= iDamage;
 
 			return;
 		}
@@ -268,9 +268,11 @@ void Raven_SensoryMemory::UpdateDamaged(const int pOpponentID, int iDamage)
 {
 	for (auto iter = m_MemoryMap.begin(); iter != m_MemoryMap.end(); ++iter)
 	{
-		if ((*iter).first->ID() == pOpponentID)
+		// ³ª¸¦ ¸ÂÃá º¿
+		if (iter->first->ID() == pOpponentID)
 		{
-			(*iter).second.iDamaged += iDamage;
+			iter->second.iDamaged += iDamage;
+
 			if (iter->first->isDead())
 			{
 				iter->second.iDamaged = 0;
@@ -305,7 +307,7 @@ void Raven_SensoryMemory::ClearEnemyInfo(const int pOpponentID)
 {
 	for (auto iter = m_MemoryMap.begin(); iter != m_MemoryMap.end(); ++iter)
 	{
-		// ë‚˜ë¥¼ ë§ì¶˜ ë´‡
+		// ³ª¸¦ ¸ÂÃá º¿
 		if (iter->first->ID() == pOpponentID)
 		{
 			iter->second.iEnemyHealth = 100;
