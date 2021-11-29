@@ -2,10 +2,6 @@
 #include "Raven_Bot.h"
 #include "Raven_SensoryMemory.h"
 
-#include <random>
-
-std::default_random_engine dre(std::random_device{}());
-std::uniform_int_distribution<> uid(1, 3);
 
 //-------------------------------- ctor ---------------------------------------
 //-----------------------------------------------------------------------------
