@@ -20,7 +20,7 @@ void Raven_TargetingSystem::UpdateByDistance()
 	m_pCurrentTarget = 0;
 
 	//grab a list of all the opponents the owner can sense
-	// °¡Àå ÃÖ±Ù¿¡ °¨ÁöµÈ º¿µéÀÇ ¸ñ·Ï
+	// ê°€ì¥ ìµœê·¼ì— ê°ì§€ëœ ë´‡ë“¤ì˜ ëª©ë¡
 	std::list<Raven_Bot*> SensedBots;
 	SensedBots = m_pOwner->GetSensoryMem()->GetListOfRecentlySensedOpponents();
 
@@ -51,11 +51,11 @@ void Raven_TargetingSystem::UpdateByHealth()
 
 	for (auto curBot = SensedBots.begin(); curBot != SensedBots.end(); ++curBot)
 	{
-		if (*curBot)->isAlive())
+		if ((*curBot)->isAlive())
 		{
 			int enemyHealth = m_pOwner->GetSensoryMem()->GetEnemyHealth(*curBot);
 
-			// º¿ÀÌ ±â¾ïÇÏ°í ÀÖ´Â Ã¼·ÂÀÌ °¡Àå ³·Àº ÀûÀ» Å¸°ÙÀ¸·Î ÇÑ´Ù
+			// ë´‡ì´ ê¸°ì–µí•˜ê³  ìˆëŠ” ì²´ë ¥ì´ ê°€ì¥ ë‚®ì€ ì ì„ íƒ€ê²Ÿìœ¼ë¡œ í•œë‹¤
 			if (enemyHealth < health)
 			{
 				health = enemyHealth;
@@ -78,6 +78,7 @@ void Raven_TargetingSystem::UpdateByDamaged()
 		{
 			auto damage = m_pOwner->GetSensoryMem()->GetDamaged(*curBot);
 
+			// ë´‡ì—ê²Œ ê°€ì¥ ë°ë¯¸ì§€ë¥¼ ë§ì´ ì…íŒ ì ì„ íƒ€ê²Ÿìœ¼ë¡œ í•œë‹¤
 			if (damage > dam)
 			{
 				dam = damage;

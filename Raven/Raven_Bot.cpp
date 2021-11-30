@@ -22,11 +22,6 @@
 
 #include "Debug/DebugConsole.h"
 
-#include <random>
-
-std::default_random_engine dre(std::random_device{}());
-std::uniform_int_distribution<> uid(1, 3);
-
 //-------------------------- ctor ---------------------------------------------
 Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 
@@ -51,8 +46,7 @@ Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 	m_iScore(0),
 	m_Status(spawning),
 	m_bPossessed(false),
-	m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV"))),
-	m_random(uid(dre))
+	m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV")))
 
 {
 	SetEntityType(type_bot);
@@ -142,18 +136,14 @@ void Raven_Bot::Update()
 		//to be the current target
 		if (m_pTargetSelectionRegulator->isReady())
 		{
-			switch (m_random)
-			{
-			case 1:
+			int nFirstBotID = m_pWorld->GetAllBots().front()->ID();
+
+			if (ID() == nFirstBotID)
 				m_pTargSys->UpdateByDistance();
-				break;
-			case 2:
+			else if (ID() == nFirstBotID + 1)
 				m_pTargSys->UpdateByHealth();
-				break;
-			case 3:
+			else if (ID() == nFirstBotID + 2)
 				m_pTargSys->UpdateByDamaged();
-				break;
-			}
 		}
 
 		//appraise and arbitrate between all possible high level goals
@@ -250,7 +240,7 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 		ReduceHealth(DereferenceToType<int>(msg.ExtraInfo));
 
 		//==================================================
-		// Àû¿¡°Ô ÀÔÀº µ¥¹ÌÁö·® °»½Å
+		// ì ì—ê²Œ ìž…ì€ ë°ë¯¸ì§€ëŸ‰ ê°±ì‹ 
 		m_pSensoryMem->UpdateDamaged(msg.Sender, *static_cast<int*>(msg.ExtraInfo));
 		//==================================================
 
@@ -264,7 +254,7 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 				NO_ADDITIONAL_INFO);
 		}
 		//==================================================
-		// Ã¼·ÂÀÌ ±ðÀÎ »ç½ÇÀ» ÀüÃ¼ º¿¿¡°Ô ¸Þ¼¼Áö·Î Àü¼Û
+		// ì²´ë ¥ì´ ê¹Žì¸ ì‚¬ì‹¤ì„ ì „ì²´ ë´‡ì—ê²Œ ë©”ì„¸ì§€ë¡œ ì „ì†¡
 		else
 		{
 			for (auto iter = m_pWorld->GetAllBots().begin(); iter != m_pWorld->GetAllBots().end(); ++iter)
@@ -284,21 +274,21 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 		return true;
 
 	//==================================================
-	// °üÂûÇÏ°í ÀÖ´Â º¿ÀÌ ¹ß»çÃ¼¿¡ ¸Â¾Ò´ÂÁö È®ÀÎ
+	// ê´€ì°°í•˜ê³  ìžˆëŠ” ë´‡ì´ ë°œì‚¬ì²´ì— ë§žì•˜ëŠ”ì§€ í™•ì¸
 	case Msg_BotHasBeenHitByProjectile:
 	{
-		// º¿ÀÇ ½Ã¾ß¿¡ ÀÖ´Â ¸ðµç º¿µé
+		// ë´‡ì˜ ì‹œì•¼ì— ìžˆëŠ” ëª¨ë“  ë´‡ë“¤
 		auto botsInFOV = m_pWorld->GetAllBotsInFOV(this);
-		// ¸Þ¼¼Áö¸¦ Àü¼ÛÇÑ º¿ÀÌ ½Ã¾ß¿¡ ÀÖ´ÂÁö È®ÀÎ
+		// ë©”ì„¸ì§€ë¥¼ ì „ì†¡í•œ ë´‡ì´ ì‹œì•¼ì— ìžˆëŠ”ì§€ í™•ì¸
 		auto bot = std::find_if(botsInFOV.begin(), botsInFOV.end(), [msg](const Raven_Bot* other)
 			{
 				return msg.Sender == other->ID();
 			});
 
-		// ¸Þ¼¼Áö¸¦ Àü¼ÛÇÑ º¿ÀÌ ÀÖÀ¸¸é
+		// ë©”ì„¸ì§€ë¥¼ ì „ì†¡í•œ ë´‡ì´ ìžˆìœ¼ë©´
 		if (bot != botsInFOV.end())
 		{
-			// ÇØ´ç º¿ÀÇ Ã¼·Â Á¤º¸ °»½Å
+			// í•´ë‹¹ ë´‡ì˜ ì²´ë ¥ ì •ë³´ ê°±ì‹ 
 			m_pSensoryMem->UpdateEnemyHealth(msg.Sender, *static_cast<int*>(msg.ExtraInfo));
 		}
 	}
