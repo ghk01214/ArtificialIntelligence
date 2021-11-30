@@ -110,6 +110,8 @@ private:
 	//the buffer for the transformed vertices
 	std::vector<Vector2D>              m_vecBotVBTrans;
 
+	// 타게팅 시스템 결정 난수
+	int								  m_random;
 
 	//bots shouldn't be copied, only created or respawned
 	Raven_Bot(const Raven_Bot&);

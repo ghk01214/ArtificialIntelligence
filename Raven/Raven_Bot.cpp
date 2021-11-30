@@ -22,6 +22,11 @@
 
 #include "Debug/DebugConsole.h"
 
+#include <random>
+
+std::default_random_engine dre(std::random_device{}());
+std::uniform_int_distribution<> uid(1, 3);
+
 //-------------------------- ctor ---------------------------------------------
 Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 
@@ -46,7 +51,8 @@ Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 	m_iScore(0),
 	m_Status(spawning),
 	m_bPossessed(false),
-	m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV")))
+	m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV"))),
+	m_random(uid(dre))
 
 {
 	SetEntityType(type_bot);
@@ -136,19 +142,17 @@ void Raven_Bot::Update()
 		//to be the current target
 		if (m_pTargetSelectionRegulator->isReady())
 		{
-			int iFirstBotID = m_pWorld->GetAllBots().front()->ID();
-			
-			if (ID() == iFirstBotID)
+			switch (m_random)
 			{
+			case 1:
 				m_pTargSys->UpdateByDistance();
-			}
-			else if (ID() == iFirstBotID + 1)
-			{
+				break;
+			case 2:
 				m_pTargSys->UpdateByHealth();
-			}
-			else if (ID() == iFirstBotID + 2)
-			{
+				break;
+			case 3:
 				m_pTargSys->UpdateByDamaged();
+				break;
 			}
 		}
 
