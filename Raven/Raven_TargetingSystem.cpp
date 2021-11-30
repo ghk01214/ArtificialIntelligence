@@ -2,10 +2,6 @@
 #include "Raven_Bot.h"
 #include "Raven_SensoryMemory.h"
 
-#include <random>
-
-std::default_random_engine dre(std::random_device{}());
-std::uniform_int_distribution<> uid(1, 3);
 
 //-------------------------------- ctor ---------------------------------------
 //-----------------------------------------------------------------------------
@@ -55,7 +51,7 @@ void Raven_TargetingSystem::UpdateByHealth()
 
 	for (auto curBot = SensedBots.begin(); curBot != SensedBots.end(); ++curBot)
 	{
-		if ((*curBot)->isAlive() && (*curBot != m_pOwner))
+		if (*curBot)->isAlive())
 		{
 			int enemyHealth = m_pOwner->GetSensoryMem()->GetEnemyHealth(*curBot);
 
@@ -78,7 +74,7 @@ void Raven_TargetingSystem::UpdateByDamaged()
 
 	for (auto curBot = SensedBots.begin(); curBot != SensedBots.end(); ++curBot)
 	{
-		if ((*curBot)->isAlive() && (*curBot != m_pOwner))
+		if ((*curBot)->isAlive())
 		{
 			auto damage = m_pOwner->GetSensoryMem()->GetDamaged(*curBot);
 
